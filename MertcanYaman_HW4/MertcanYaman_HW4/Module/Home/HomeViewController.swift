@@ -9,6 +9,9 @@ import UIKit
 
 protocol HomeViewControllerProtocol: AnyObject, BaseViewControllerProtocol {
     func reloadData()
+    func setupField()
+    func setupTableView()
+    func setWillAppear()
 }
 
 final class HomeViewController: BaseViewController {
@@ -21,23 +24,12 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBarTxt.searchTextField.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "MusicTableViewCell", bundle: nil), forCellReuseIdentifier: "MusicTableViewCell")
+        self.presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-        if let textfield = searchBarTxt.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = UIColor(hexString: "#141921")
-            textfield.leftView?.tintColor = .systemGray5
-        }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+        self.presenter.viewWillAppear()
+    }    
 }
 
 extension HomeViewController: HomeViewControllerProtocol {
@@ -46,6 +38,26 @@ extension HomeViewController: HomeViewControllerProtocol {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "MusicTableViewCell", bundle: nil), forCellReuseIdentifier: "MusicTableViewCell")
+    }
+    
+    func setupField() {
+        searchBarTxt.searchTextField.delegate = self
+    }
+    
+    func setWillAppear() {
+        
+        self.navigationController?.isNavigationBarHidden = true
+        if let textfield = searchBarTxt.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = UIColor(hexString: "#141921")
+            textfield.leftView?.tintColor = .systemGray5
+        }
+        
     }
     
 }
@@ -79,17 +91,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
-        guard let music = presenter.getMusicByIndex(indexPath.row),
-              let imageUrl = music.artworkUrl100,
-              let url = URL(string: imageUrl),
-              let title = music.trackName,
-              let content = music.artistName else { return cell }
-        cell.setup(url, title, content)
+        guard let music = presenter.getMusicForTableCellByIndex(indexPath.row),
+              let url = URL(string: music.0) else { return cell }
+        cell.setup(url, music.1, music.2)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter.goDetailSong(indexPath.row)
     }
 }
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E504C26D2A321D9300CAE72E /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504C26C2A321D9300CAE72E /* Collection+Extension.swift */; };
+		E504C2742A32267900CAE72E /* DetailSongInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504C2732A32267900CAE72E /* DetailSongInteractor.swift */; };
+		E504C2762A3226A400CAE72E /* DetailSongPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504C2752A3226A400CAE72E /* DetailSongPresenter.swift */; };
+		E504C2782A3226B000CAE72E /* DetailSongRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504C2772A3226B000CAE72E /* DetailSongRouter.swift */; };
 		E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F19912A2F509C00DCD915 /* ArtistResult.swift */; };
 		E53F19952A2F510700DCD915 /* MusicService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F19942A2F510700DCD915 /* MusicService+Extension.swift */; };
 		E53F19972A2F52E400DCD915 /* ArtistURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F19962A2F52E400DCD915 /* ArtistURL.swift */; };
@@ -22,6 +26,8 @@
 		E594B8472A2F4D2800B7B87E /* MertcanYaman_HW4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E594B8462A2F4D2800B7B87E /* MertcanYaman_HW4UITests.swift */; };
 		E594B8492A2F4D2800B7B87E /* MertcanYaman_HW4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E594B8482A2F4D2800B7B87E /* MertcanYaman_HW4UITestsLaunchTests.swift */; };
 		E594B8592A2F4E9F00B7B87E /* MusicAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E594B8582A2F4E9F00B7B87E /* MusicAPI */; };
+		E59715A12A3296CB00C31103 /* DetailSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E597159F2A3296CB00C31103 /* DetailSongViewController.swift */; };
+		E59715A22A3296CB00C31103 /* DetailSongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59715A02A3296CB00C31103 /* DetailSongViewController.xib */; };
 		E59B6E962A31C17900D9B922 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B6E942A31C17900D9B922 /* MusicTableViewCell.swift */; };
 		E59B6E972A31C17900D9B922 /* MusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B6E952A31C17900D9B922 /* MusicTableViewCell.xib */; };
 		E59B6E992A31C21F00D9B922 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B6E982A31C21F00D9B922 /* UIView+Extension.swift */; };
@@ -65,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E504C26C2A321D9300CAE72E /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		E504C2732A32267900CAE72E /* DetailSongInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSongInteractor.swift; sourceTree = "<group>"; };
+		E504C2752A3226A400CAE72E /* DetailSongPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSongPresenter.swift; sourceTree = "<group>"; };
+		E504C2772A3226B000CAE72E /* DetailSongRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSongRouter.swift; sourceTree = "<group>"; };
 		E53F19912A2F509C00DCD915 /* ArtistResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResult.swift; sourceTree = "<group>"; };
 		E53F19942A2F510700DCD915 /* MusicService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicService+Extension.swift"; sourceTree = "<group>"; };
 		E53F19962A2F52E400DCD915 /* ArtistURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistURL.swift; sourceTree = "<group>"; };
@@ -84,6 +94,8 @@
 		E594B8462A2F4D2800B7B87E /* MertcanYaman_HW4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MertcanYaman_HW4UITests.swift; sourceTree = "<group>"; };
 		E594B8482A2F4D2800B7B87E /* MertcanYaman_HW4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MertcanYaman_HW4UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E594B8562A2F4D4D00B7B87E /* MusicAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MusicAPI; path = ../MusicAPI; sourceTree = "<group>"; };
+		E597159F2A3296CB00C31103 /* DetailSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSongViewController.swift; sourceTree = "<group>"; };
+		E59715A02A3296CB00C31103 /* DetailSongViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailSongViewController.xib; sourceTree = "<group>"; };
 		E59B6E942A31C17900D9B922 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		E59B6E952A31C17900D9B922 /* MusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicTableViewCell.xib; sourceTree = "<group>"; };
 		E59B6E982A31C21F00D9B922 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -135,6 +147,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E504C26E2A321F5A00CAE72E /* DetailSong */ = {
+			isa = PBXGroup;
+			children = (
+				E504C2732A32267900CAE72E /* DetailSongInteractor.swift */,
+				E504C2752A3226A400CAE72E /* DetailSongPresenter.swift */,
+				E504C2772A3226B000CAE72E /* DetailSongRouter.swift */,
+				E597159F2A3296CB00C31103 /* DetailSongViewController.swift */,
+				E59715A02A3296CB00C31103 /* DetailSongViewController.xib */,
+			);
+			path = DetailSong;
+			sourceTree = "<group>";
+		};
 		E53F198F2A2F4F7200DCD915 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +187,7 @@
 				E53F19942A2F510700DCD915 /* MusicService+Extension.swift */,
 				E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */,
 				E59B6E982A31C21F00D9B922 /* UIView+Extension.swift */,
+				E504C26C2A321D9300CAE72E /* Collection+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +274,7 @@
 		E59E1A4A2A307A2C002FBFA5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				E504C26E2A321F5A00CAE72E /* DetailSong */,
 				E59E1A4B2A307B27002FBFA5 /* Base */,
 				E59E1A6C2A30AD9D002FBFA5 /* Home */,
 				E59E1A612A309152002FBFA5 /* NoInternet */,
@@ -435,6 +461,7 @@
 				E594B82A2A2F4D2700B7B87E /* Main.storyboard in Resources */,
 				E59E1A652A309181002FBFA5 /* NoInternetViewController.xib in Resources */,
 				E59E1A602A308A7E002FBFA5 /* SplashViewController.xib in Resources */,
+				E59715A22A3296CB00C31103 /* DetailSongViewController.xib in Resources */,
 				E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,10 +493,13 @@
 				E594B8232A2F4D2700B7B87E /* AppDelegate.swift in Sources */,
 				E59E1A582A3081AB002FBFA5 /* SplashRouter.swift in Sources */,
 				E59E1A532A307DDF002FBFA5 /* LoadingShowable.swift in Sources */,
+				E504C2762A3226A400CAE72E /* DetailSongPresenter.swift in Sources */,
 				E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */,
 				E59E1A502A307D75002FBFA5 /* LoadingView.swift in Sources */,
+				E504C2742A32267900CAE72E /* DetailSongInteractor.swift in Sources */,
 				E59E1A722A30AE07002FBFA5 /* HomeInteractor.swift in Sources */,
 				E594B8252A2F4D2700B7B87E /* SceneDelegate.swift in Sources */,
+				E504C2782A3226B000CAE72E /* DetailSongRouter.swift in Sources */,
 				E59B6E962A31C17900D9B922 /* MusicTableViewCell.swift in Sources */,
 				E53F199B2A2F638400DCD915 /* MusicURL.swift in Sources */,
 				E59E1A4D2A307B7F002FBFA5 /* BaseViewController.swift in Sources */,
@@ -479,12 +509,14 @@
 				E59E1A5C2A3082A9002FBFA5 /* SplashPresenter.swift in Sources */,
 				E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */,
 				E59E1A692A3095F5002FBFA5 /* NoInternetPresenter.swift in Sources */,
+				E59715A12A3296CB00C31103 /* DetailSongViewController.swift in Sources */,
 				E53F19972A2F52E400DCD915 /* ArtistURL.swift in Sources */,
 				E594B82D2A2F4D2700B7B87E /* MertcanYaman_HW4.xcdatamodeld in Sources */,
 				E59E1A642A309181002FBFA5 /* NoInternetViewController.swift in Sources */,
 				E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */,
 				E59E1A6B2A309663002FBFA5 /* NoInternetRouter.swift in Sources */,
 				E59E1A672A3095E6002FBFA5 /* NoInternetInteractor.swift in Sources */,
+				E504C26D2A321D9300CAE72E /* Collection+Extension.swift in Sources */,
 				E59E1A742A30AE10002FBFA5 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

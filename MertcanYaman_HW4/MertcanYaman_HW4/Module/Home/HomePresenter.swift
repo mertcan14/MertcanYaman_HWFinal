@@ -13,6 +13,10 @@ protocol HomePresenterProtocol {
     
     func fetchData(_ term: String, _ searchedType: SearchedType)
     func getMusicByIndex(_ index: Int) -> Music?
+    func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String)?
+    func viewDidLoad()
+    func viewWillAppear()
+    func goDetailSong(_ index: Int)
 }
 
 final class HomePresenter {
@@ -47,19 +51,42 @@ final class HomePresenter {
 
 extension HomePresenter: HomePresenterProtocol {
     
+    func goDetailSong(_ index: Int) {
+        guard let song = self.musicResult[safe: index] else { return }
+        self.router.navigate(.detailSong(song))
+    }
+    
+    func viewDidLoad() {
+        
+        self.view.setupField()
+        self.view.setupTableView()
+        
+    }
+    
+    func viewWillAppear() {
+        self.view.setWillAppear()
+    }
+    
+    func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String)? {
+        guard let music = musicResult[safe: index],
+              let imageUrl = music.artworkUrl100,
+              let title = music.trackName,
+              let content = music.artistName else { return nil }
+        return (imageUrl, title, content)
+    }
+    
     var numberOfMusics: Int {
         return musicCount
     }
     
-    // TODO: - safe yap
     func getMusicByIndex(_ index: Int) -> Music? {
-        if index >= 0 && index < musicCount {
-            return self.musicResult[index]
-        }
-        return nil
+       return musicResult[safe: index]
     }
     
-    func fetchData(_ term: String, _ type: SearchedType) {
+    func fetchData(
+        _ term: String,
+        _ type: SearchedType
+    ) {
         interactor.fetchMusics(term, type)
     }
     

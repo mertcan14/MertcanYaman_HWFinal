@@ -20,6 +20,10 @@ class BaseViewController: UIViewController, LoadingShowable {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 }
 

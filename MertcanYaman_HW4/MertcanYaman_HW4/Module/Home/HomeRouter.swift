@@ -10,6 +10,7 @@ import UIKit
 
 enum HomeRoutes {
     case noInternetScreen
+    case detailSong(_ song: Music)
 }
 
 protocol HomeRouterProtocol: AnyObject {
@@ -41,7 +42,18 @@ extension HomeRouter: HomeRouterProtocol {
             let noInternetVC = NoInternetRouter.createModule()
             let navigationController = UINavigationController(rootViewController: noInternetVC)
             window.rootViewController = navigationController
+            
+        case .detailSong(let music):
+            let detailSongVC = DetailSongRouter.createModule()
+            detailSongVC.presenter.setMusic(music)
+//            detailSongVC.modalPresentationStyle = .fullScreen
+//            detailSongVC.modalTransitionStyle = .coverVertical
+//            self.viewController?.present(detailSongVC, animated: true)
+            
+//            let navigationController = UINavigationController(rootViewController: detailSongVC)
+//            window.rootViewController = navigationController
+            viewController?.navigationController?.pushViewController(detailSongVC, animated: true)
         }
+        
     }
-    
 }
