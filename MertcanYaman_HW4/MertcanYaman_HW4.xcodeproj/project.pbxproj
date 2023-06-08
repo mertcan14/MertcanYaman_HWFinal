@@ -22,6 +22,10 @@
 		E594B8472A2F4D2800B7B87E /* MertcanYaman_HW4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E594B8462A2F4D2800B7B87E /* MertcanYaman_HW4UITests.swift */; };
 		E594B8492A2F4D2800B7B87E /* MertcanYaman_HW4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E594B8482A2F4D2800B7B87E /* MertcanYaman_HW4UITestsLaunchTests.swift */; };
 		E594B8592A2F4E9F00B7B87E /* MusicAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E594B8582A2F4E9F00B7B87E /* MusicAPI */; };
+		E59B6E962A31C17900D9B922 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B6E942A31C17900D9B922 /* MusicTableViewCell.swift */; };
+		E59B6E972A31C17900D9B922 /* MusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B6E952A31C17900D9B922 /* MusicTableViewCell.xib */; };
+		E59B6E992A31C21F00D9B922 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59B6E982A31C21F00D9B922 /* UIView+Extension.swift */; };
+		E59B6E9C2A31C3D600D9B922 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E59B6E9B2A31C3D600D9B922 /* SDWebImage */; };
 		E59E1A4D2A307B7F002FBFA5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A4C2A307B7F002FBFA5 /* BaseViewController.swift */; };
 		E59E1A502A307D75002FBFA5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A4F2A307D75002FBFA5 /* LoadingView.swift */; };
 		E59E1A532A307DDF002FBFA5 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A522A307DDF002FBFA5 /* LoadingShowable.swift */; };
@@ -35,11 +39,12 @@
 		E59E1A672A3095E6002FBFA5 /* NoInternetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A662A3095E6002FBFA5 /* NoInternetInteractor.swift */; };
 		E59E1A692A3095F5002FBFA5 /* NoInternetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A682A3095F5002FBFA5 /* NoInternetPresenter.swift */; };
 		E59E1A6B2A309663002FBFA5 /* NoInternetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A6A2A309663002FBFA5 /* NoInternetRouter.swift */; };
-		E59E1A6F2A30ADBA002FBFA5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A6D2A30ADBA002FBFA5 /* HomeViewController.swift */; };
 		E59E1A722A30AE07002FBFA5 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */; };
 		E59E1A742A30AE10002FBFA5 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */; };
 		E59E1A762A30AE24002FBFA5 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */; };
-		E59E1A782A30FE20002FBFA5 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E1A772A30FE20002FBFA5 /* HomeView.storyboard */; };
+		E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332DD2A313937005DA42E /* HomeViewController.swift */; };
+		E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D332DE2A313937005DA42E /* HomeViewController.xib */; };
+		E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,9 @@
 		E594B8462A2F4D2800B7B87E /* MertcanYaman_HW4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MertcanYaman_HW4UITests.swift; sourceTree = "<group>"; };
 		E594B8482A2F4D2800B7B87E /* MertcanYaman_HW4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MertcanYaman_HW4UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E594B8562A2F4D4D00B7B87E /* MusicAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MusicAPI; path = ../MusicAPI; sourceTree = "<group>"; };
+		E59B6E942A31C17900D9B922 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		E59B6E952A31C17900D9B922 /* MusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicTableViewCell.xib; sourceTree = "<group>"; };
+		E59B6E982A31C21F00D9B922 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E59E1A4C2A307B7F002FBFA5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E59E1A4F2A307D75002FBFA5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E59E1A522A307DDF002FBFA5 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
@@ -92,11 +100,12 @@
 		E59E1A662A3095E6002FBFA5 /* NoInternetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetInteractor.swift; sourceTree = "<group>"; };
 		E59E1A682A3095F5002FBFA5 /* NoInternetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPresenter.swift; sourceTree = "<group>"; };
 		E59E1A6A2A309663002FBFA5 /* NoInternetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetRouter.swift; sourceTree = "<group>"; };
-		E59E1A6D2A30ADBA002FBFA5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		E59E1A772A30FE20002FBFA5 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
+		E5D332DD2A313937005DA42E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E5D332DE2A313937005DA42E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59B6E9C2A31C3D600D9B922 /* SDWebImage in Frameworks */,
 				E594B8592A2F4E9F00B7B87E /* MusicAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				E53F19942A2F510700DCD915 /* MusicService+Extension.swift */,
+				E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */,
+				E59B6E982A31C21F00D9B922 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +237,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E59B6E932A31C14D00D9B922 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E59B6E942A31C17900D9B922 /* MusicTableViewCell.swift */,
+				E59B6E952A31C17900D9B922 /* MusicTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E59E1A4A2A307A2C002FBFA5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,11 +308,12 @@
 		E59E1A6C2A30AD9D002FBFA5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E59B6E932A31C14D00D9B922 /* View */,
 				E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */,
 				E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */,
 				E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */,
-				E59E1A6D2A30ADBA002FBFA5 /* HomeViewController.swift */,
-				E59E1A772A30FE20002FBFA5 /* HomeView.storyboard */,
+				E5D332DD2A313937005DA42E /* HomeViewController.swift */,
+				E5D332DE2A313937005DA42E /* HomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -314,6 +336,7 @@
 			name = MertcanYaman_HW4;
 			packageProductDependencies = (
 				E594B8582A2F4E9F00B7B87E /* MusicAPI */,
+				E59B6E9B2A31C3D600D9B922 /* SDWebImage */,
 			);
 			productName = MertcanYaman_HW4;
 			productReference = E594B81F2A2F4D2700B7B87E /* MertcanYaman_HW4.app */;
@@ -387,6 +410,9 @@
 				Base,
 			);
 			mainGroup = E594B8162A2F4D2700B7B87E;
+			packageReferences = (
+				E59B6E9A2A31C3D600D9B922 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = E594B8202A2F4D2700B7B87E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -403,12 +429,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E59E1A782A30FE20002FBFA5 /* HomeView.storyboard in Resources */,
 				E594B8322A2F4D2700B7B87E /* LaunchScreen.storyboard in Resources */,
+				E59B6E972A31C17900D9B922 /* MusicTableViewCell.xib in Resources */,
 				E594B82F2A2F4D2700B7B87E /* Assets.xcassets in Resources */,
 				E594B82A2A2F4D2700B7B87E /* Main.storyboard in Resources */,
 				E59E1A652A309181002FBFA5 /* NoInternetViewController.xib in Resources */,
 				E59E1A602A308A7E002FBFA5 /* SplashViewController.xib in Resources */,
+				E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,18 +466,21 @@
 				E594B8232A2F4D2700B7B87E /* AppDelegate.swift in Sources */,
 				E59E1A582A3081AB002FBFA5 /* SplashRouter.swift in Sources */,
 				E59E1A532A307DDF002FBFA5 /* LoadingShowable.swift in Sources */,
+				E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */,
 				E59E1A502A307D75002FBFA5 /* LoadingView.swift in Sources */,
 				E59E1A722A30AE07002FBFA5 /* HomeInteractor.swift in Sources */,
 				E594B8252A2F4D2700B7B87E /* SceneDelegate.swift in Sources */,
+				E59B6E962A31C17900D9B922 /* MusicTableViewCell.swift in Sources */,
 				E53F199B2A2F638400DCD915 /* MusicURL.swift in Sources */,
 				E59E1A4D2A307B7F002FBFA5 /* BaseViewController.swift in Sources */,
 				E59E1A5F2A308A7E002FBFA5 /* SplashViewController.swift in Sources */,
+				E59B6E992A31C21F00D9B922 /* UIView+Extension.swift in Sources */,
 				E53F19992A2F61A800DCD915 /* MusicResult.swift in Sources */,
 				E59E1A5C2A3082A9002FBFA5 /* SplashPresenter.swift in Sources */,
+				E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */,
 				E59E1A692A3095F5002FBFA5 /* NoInternetPresenter.swift in Sources */,
 				E53F19972A2F52E400DCD915 /* ArtistURL.swift in Sources */,
 				E594B82D2A2F4D2700B7B87E /* MertcanYaman_HW4.xcdatamodeld in Sources */,
-				E59E1A6F2A30ADBA002FBFA5 /* HomeViewController.swift in Sources */,
 				E59E1A642A309181002FBFA5 /* NoInternetViewController.swift in Sources */,
 				E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */,
 				E59E1A6B2A309663002FBFA5 /* NoInternetRouter.swift in Sources */,
@@ -792,10 +822,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E59B6E9A2A31C3D600D9B922 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		E594B8582A2F4E9F00B7B87E /* MusicAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MusicAPI;
+		};
+		E59B6E9B2A31C3D600D9B922 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E59B6E9A2A31C3D600D9B922 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

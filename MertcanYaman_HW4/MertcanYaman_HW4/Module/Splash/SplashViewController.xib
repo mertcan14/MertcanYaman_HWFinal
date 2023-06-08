@@ -18,18 +18,18 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ub4-hn-tmJ">
-                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
-                    <color key="backgroundColor" red="0.53725490200000003" green="0.14117647059999999" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Splash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-vN-j7j">
+                    <rect key="frame" x="169" y="418" width="52" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Ub4-hn-tmJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OCX-pP-7ni"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ub4-hn-tmJ" secondAttribute="bottom" id="VpZ-M5-QuL"/>
-                <constraint firstItem="Ub4-hn-tmJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gSq-PL-Dck"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ub4-hn-tmJ" secondAttribute="trailing" id="wuI-Bo-qjn"/>
+                <constraint firstItem="dh6-vN-j7j" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="B1s-HS-5Oi"/>
+                <constraint firstItem="dh6-vN-j7j" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="D8z-9a-cCh"/>
             </constraints>
             <point key="canvasLocation" x="140" y="21"/>
         </view>

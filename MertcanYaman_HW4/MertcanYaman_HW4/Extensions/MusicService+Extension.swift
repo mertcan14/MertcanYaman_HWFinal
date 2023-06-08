@@ -49,15 +49,17 @@ extension MusicService {
     
     func getSearch(
         term: String,
+        searchedType: SearchedType,
         country: String?,
         limit: String?,
         completion: @escaping ((Result<MusicResult, NetworkError>) -> Void)
     ) {
         if ReachabilityService.isConnectedToInternet() {
-            guard let url = MusicURL(term: term, country: country, limit: limit).url else {
+            guard let url = MusicURL(term: term, searchedType: searchedType, country: country, limit: limit).url else {
                 completion(.failure(.invalidChar))
                 return
             }
+            print(url)
             self.fetchMusic(url, completion: completion)
         }else {
             completion(.failure(.connectionError))

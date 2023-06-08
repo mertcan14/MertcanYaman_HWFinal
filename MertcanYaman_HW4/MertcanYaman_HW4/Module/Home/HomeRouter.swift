@@ -20,8 +20,7 @@ final class HomeRouter {
     weak var viewController: HomeViewController?
     
     static func createModule() -> HomeViewController {
-        let view = UIStoryboard(name: "HomeView", bundle: nil)
-            .instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let view = HomeViewController()
         let interactor = HomeInteractor()
         let router = HomeRouter()
         let presenter = HomePresenter(view, router, interactor)

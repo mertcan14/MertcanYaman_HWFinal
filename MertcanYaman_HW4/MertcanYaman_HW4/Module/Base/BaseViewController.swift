@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol BaseViewControllerProtocol: AnyObject {
+protocol BaseViewControllerProtocol: AnyObject, LoadingShowable {
     func showAlert(
         _ title: String,
         _ message: String,

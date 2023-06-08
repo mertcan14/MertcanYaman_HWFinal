@@ -7,14 +7,22 @@
 
 import Foundation
 
+enum SearchedType: String {
+    case song = "song"
+    case album = "album"
+    case artist = "allArtist"
+    case all = "all"
+}
+
 enum MusicURL {
     private var baseURL: String { return "https://itunes.apple.com" }
     private var search: String { return "/search" }
     
-    case param(String,Dictionary<String, String>)
+    case param(String ,Dictionary<String, String>)
     
     init(
         term: String,
+        searchedType: SearchedType,
         country: String?,
         limit: String?
     ) {
@@ -25,7 +33,11 @@ enum MusicURL {
         if let limit {
             paramsDict["limit"] = limit
         }
-        self = .param(term, paramsDict)
+        if searchedType != .all {
+            paramsDict["entity"] = searchedType.rawValue
+        }
+        let termArray = term.split(separator: " ")
+        self = .param(termArray.joined(separator: "+"), paramsDict)
     }
     
     private var fullPath: String {
@@ -43,7 +55,7 @@ enum MusicURL {
     }
     
     var url: URL? {
-        guard let url = URL(string: fullPath) else {
+        guard let url = URL(string: fullPath.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!) else {
             return nil
         }
         return url

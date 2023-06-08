@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoadingShowable where Self: UIViewController {
+protocol LoadingShowable {
     func showLoading()
     func hideLoading()
 }

@@ -15,33 +15,29 @@ struct MusicResult: Decodable {
 struct Music: Decodable {
     let wrapperType: String?
     let kind: String?
-    let artistID: Int?
-    let collectionID, trackID: Int?
-    let artistName, collectionName, trackName, collectionCensoredName: String?
+    let artistID, collectionID: Int?
+    let trackID: Int?
+    let artistName: String?
+    let collectionName: String?
+    let trackName: String?
+    let collectionCensoredName: String?
     let trackCensoredName: String?
-    let artistViewURL: String?
-    let collectionViewURL, trackViewURL: String?
+    let artistViewURL, collectionViewURL: String?
+    let trackViewURL: String?
     let previewURL: String?
     let artworkUrl30, artworkUrl60, artworkUrl100: String?
     let collectionPrice, trackPrice: Double?
     let releaseDate: Date?
-    let collectionExplicitness, trackExplicitness: String?
-    let discCount, discNumber: Int?
-    let trackCount: Int?
-    let trackNumber: Int?
+    let collectionExplicitness, trackExplicitness: String
+    let discCount, discNumber, trackCount, trackNumber: Int?
     let trackTimeMillis: Int?
     let country: String?
     let currency: String?
     let primaryGenreName: String?
     let isStreamable: Bool?
-    let feedURL: String?
-    let collectionHDPrice: Int?
-    let contentAdvisoryRating: String?
-    let artworkUrl600: String?
-    let genreIDS, genres: [String]?
-    let collectionArtistID: Int?
-    let collectionArtistName: String?
-
+    let trackRentalPrice, collectionHDPrice, trackHDPrice, trackHDRentalPrice: Double?
+    let contentAdvisoryRating, longDescription: String?
+    
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind
         case artistID = "artistId"
@@ -52,14 +48,11 @@ struct Music: Decodable {
         case collectionViewURL = "collectionViewUrl"
         case trackViewURL = "trackViewUrl"
         case previewURL = "previewUrl"
-        case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable
-        case feedURL = "feedUrl"
+        case artworkUrl30, artworkUrl60, artworkUrl100, collectionPrice, trackPrice, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable, trackRentalPrice
         case collectionHDPrice = "collectionHdPrice"
-        case contentAdvisoryRating, artworkUrl600
-        case genreIDS = "genreIds"
-        case genres
-        case collectionArtistID = "collectionArtistId"
-        case collectionArtistName
+        case trackHDPrice = "trackHdPrice"
+        case trackHDRentalPrice = "trackHdRentalPrice"
+        case contentAdvisoryRating, longDescription
     }
 }
 
