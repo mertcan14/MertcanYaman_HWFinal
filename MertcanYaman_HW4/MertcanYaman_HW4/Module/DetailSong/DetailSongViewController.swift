@@ -35,10 +35,16 @@ final class DetailSongViewController: BaseViewController {
         let saveSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         saveSongView.addGestureRecognizer(saveSongTap)
         saveSongTap.circleBtn = saveSongView
+        saveSongTap.closure = {
+            self.presenter.saveMusicFromCoreData()
+        }
         
         let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playCircleBtn.addGestureRecognizer(playSongTap)
         playSongTap.circleBtn = playCircleBtn
+        playSongTap.closure = {
+            self.presenter.fetchSavedMusicFromCoreData()
+        }
         
         let nextSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         nextCircleBtn.addGestureRecognizer(nextSongTap)
@@ -95,6 +101,8 @@ final class DetailSongViewController: BaseViewController {
     
     @objc func changeCircleBtn(sender : MyTapGesture) {
         sender.circleBtn.changeImageAndColor()
+        guard let closure =  sender.closure else { return }
+        closure()
     }
 }
 
@@ -114,4 +122,5 @@ extension DetailSongViewController: DetailSongViewControllerProtocol {
 
 class MyTapGesture: UITapGestureRecognizer {
     var circleBtn = CircleButton()
+    var closure: (()->Void)?
 }

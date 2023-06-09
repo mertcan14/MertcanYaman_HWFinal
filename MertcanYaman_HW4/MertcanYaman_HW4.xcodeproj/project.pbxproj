@@ -50,6 +50,8 @@
 		E59E1A762A30AE24002FBFA5 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */; };
 		E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */; };
 		E5A0C2BD2A3323B300FFB853 /* CircleButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */; };
+		E5C239C52A33DC710033A0FB /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E5C239C42A33DC710033A0FB /* MyCoreData */; };
+		E5C239C72A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */; };
 		E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332DD2A313937005DA42E /* HomeViewController.swift */; };
 		E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D332DE2A313937005DA42E /* HomeViewController.xib */; };
 		E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */; };
@@ -119,9 +121,11 @@
 		E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleButton.xib; sourceTree = "<group>"; };
+		E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
 		E5D332DD2A313937005DA42E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5D332DE2A313937005DA42E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E5D5FF082A335F690063B39F /* MyDatabase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyDatabase; path = ../MyDatabase; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 			files = (
 				E59B6E9C2A31C3D600D9B922 /* SDWebImage in Frameworks */,
 				E594B8592A2F4E9F00B7B87E /* MusicAPI in Frameworks */,
+				E5C239C52A33DC710033A0FB /* MyCoreData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				E594B8562A2F4D4D00B7B87E /* MusicAPI */,
+				E5D5FF082A335F690063B39F /* MyDatabase */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				E59E1A522A307DDF002FBFA5 /* LoadingShowable.swift */,
+				E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -377,6 +384,7 @@
 			packageProductDependencies = (
 				E594B8582A2F4E9F00B7B87E /* MusicAPI */,
 				E59B6E9B2A31C3D600D9B922 /* SDWebImage */,
+				E5C239C42A33DC710033A0FB /* MyCoreData */,
 			);
 			productName = MertcanYaman_HW4;
 			productReference = E594B81F2A2F4D2700B7B87E /* MertcanYaman_HW4.app */;
@@ -527,6 +535,7 @@
 				E59715A12A3296CB00C31103 /* DetailSongViewController.swift in Sources */,
 				E53F19972A2F52E400DCD915 /* ArtistURL.swift in Sources */,
 				E594B82D2A2F4D2700B7B87E /* MertcanYaman_HW4.xcdatamodeld in Sources */,
+				E5C239C72A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift in Sources */,
 				E59E1A642A309181002FBFA5 /* NoInternetViewController.swift in Sources */,
 				E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */,
 				E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */,
@@ -890,6 +899,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E59B6E9A2A31C3D600D9B922 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		E5C239C42A33DC710033A0FB /* MyCoreData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyCoreData;
 		};
 /* End XCSwiftPackageProductDependency section */
 

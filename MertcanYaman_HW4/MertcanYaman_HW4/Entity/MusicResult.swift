@@ -12,7 +12,7 @@ struct MusicResult: Decodable {
     let results: [Music]?
 }
 
-struct Music: Decodable {
+public struct Music: Decodable {
     let wrapperType: String?
     let kind: String?
     let artistID, collectionID: Int?

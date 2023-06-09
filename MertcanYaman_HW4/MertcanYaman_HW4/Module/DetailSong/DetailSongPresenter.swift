@@ -11,6 +11,8 @@ protocol DetailSongPresenterProtocol {
     func setMusic(_ music: Music)
     func viewWillAppear()
     func goPreviousScreen()
+    func saveMusicFromCoreData()
+    func fetchSavedMusicFromCoreData()
 }
 
 final class DetailSongPresenter {
@@ -30,14 +32,35 @@ final class DetailSongPresenter {
         self.interactor = interactor
     }
     
+    private func setSavedMusic() -> [String: Any] {
+        let addWord: [String: Any] = [
+            "artistName": music?.artistName ?? "",
+            "artworkUrl100": music?.artworkUrl100 ?? "",
+            "playListName": "My List",
+            "previewUrl": music?.previewURL ?? "",
+            "primaryGenreName": music?.primaryGenreName ?? "",
+            "trackId": String(music?.trackID ?? 0),
+            "trackName": music?.trackName ?? "",
+        ]
+        return addWord
+    }
+    
 }
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {
     
+    func fetchSavedMusicFromCoreData() {
+        self.interactor.fetchSavedMusic()
+    }
+    
+    func saveMusicFromCoreData() {
+        self.interactor.savedMusic("Song", setSavedMusic())
+    }
+    
     func goPreviousScreen() {
         self.router.navigate(.dismissScreen)
     }
-    
+
     func viewWillAppear() {
         guard let imageUrl = music?.artworkUrl100,
               let songName = music?.trackName,
@@ -55,5 +78,16 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
 }
 
 extension DetailSongPresenter: DetailSongInteractorOutputProtocol {
+    
+    func checkSavedFunc(_ success: Bool) {
+        print(success)
+    }
+    
+    func showError(_ error: String) {
+        self.view.showAlert("Error", error) {
+            print("Error")
+        }
+    }
+    
     
 }
