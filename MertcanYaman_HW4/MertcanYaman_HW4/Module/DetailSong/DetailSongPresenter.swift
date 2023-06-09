@@ -10,7 +10,7 @@ import Foundation
 protocol DetailSongPresenterProtocol {
     func setMusic(_ music: Music)
     func viewWillAppear()
-    func deneme()
+    func goPreviousScreen()
 }
 
 final class DetailSongPresenter {
@@ -33,17 +33,19 @@ final class DetailSongPresenter {
 }
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {
-    func deneme() {
+    
+    func goPreviousScreen() {
         self.router.navigate(.dismissScreen)
     }
     
-    
     func viewWillAppear() {
-        guard let imageUrl = music?.artworkUrl100 else { return }
+        guard let imageUrl = music?.artworkUrl100,
+              let songName = music?.trackName,
+              let artistName = music?.artistName else { return }
         var imageUrlParse = imageUrl.split(separator: "/")
         imageUrlParse[imageUrlParse.count - 1] = "500x500bb.jpg"
         guard let url = URL(string: imageUrlParse.joined(separator: "/")) else { return }
-        self.view.setupData(url)
+        self.view.setupData(url, songName, artistName)
     }
     
     func setMusic(_ music: Music) {

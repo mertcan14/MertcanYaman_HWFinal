@@ -350,8 +350,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/DetailSongViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -369,6 +369,22 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "navigate(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "254AB797-B522-4B40-B997-E3122B677801"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/DetailSongViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "changeCircleBtn(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

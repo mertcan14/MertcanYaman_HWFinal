@@ -48,6 +48,8 @@
 		E59E1A722A30AE07002FBFA5 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */; };
 		E59E1A742A30AE10002FBFA5 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */; };
 		E59E1A762A30AE24002FBFA5 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */; };
+		E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */; };
+		E5A0C2BD2A3323B300FFB853 /* CircleButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */; };
 		E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332DD2A313937005DA42E /* HomeViewController.swift */; };
 		E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D332DE2A313937005DA42E /* HomeViewController.xib */; };
 		E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */; };
@@ -115,6 +117,8 @@
 		E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleButton.xib; sourceTree = "<group>"; };
 		E5D332DD2A313937005DA42E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5D332DE2A313937005DA42E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		E504C26E2A321F5A00CAE72E /* DetailSong */ = {
 			isa = PBXGroup;
 			children = (
+				E5A0C2B92A33238100FFB853 /* View */,
 				E504C2732A32267900CAE72E /* DetailSongInteractor.swift */,
 				E504C2752A3226A400CAE72E /* DetailSongPresenter.swift */,
 				E504C2772A3226B000CAE72E /* DetailSongRouter.swift */,
@@ -344,6 +349,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		E5A0C2B92A33238100FFB853 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */,
+				E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E594B8322A2F4D2700B7B87E /* LaunchScreen.storyboard in Resources */,
+				E5A0C2BD2A3323B300FFB853 /* CircleButton.xib in Resources */,
 				E59B6E972A31C17900D9B922 /* MusicTableViewCell.xib in Resources */,
 				E594B82F2A2F4D2700B7B87E /* Assets.xcassets in Resources */,
 				E594B82A2A2F4D2700B7B87E /* Main.storyboard in Resources */,
@@ -514,6 +529,7 @@
 				E594B82D2A2F4D2700B7B87E /* MertcanYaman_HW4.xcdatamodeld in Sources */,
 				E59E1A642A309181002FBFA5 /* NoInternetViewController.swift in Sources */,
 				E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */,
+				E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */,
 				E59E1A6B2A309663002FBFA5 /* NoInternetRouter.swift in Sources */,
 				E59E1A672A3095E6002FBFA5 /* NoInternetInteractor.swift in Sources */,
 				E504C26D2A321D9300CAE72E /* Collection+Extension.swift in Sources */,
