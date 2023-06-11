@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddPlayListViewController" customModule="MertcanYaman_HW4" customModuleProvider="target">
+            <connections>
+                <outlet property="backArrowImage" destination="v36-s4-S4R" id="LTR-SQ-oXa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiD-iM-Sbf">
+                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backarrow" translatesAutoresizingMaskIntoConstraints="NO" id="v36-s4-S4R">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="CkS-UT-9Yg"/>
+                                <constraint firstAttribute="height" constant="50" id="VRK-MO-sXv"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.047058823530000002" green="0.062745098040000002" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="v36-s4-S4R" firstAttribute="leading" secondItem="IiD-iM-Sbf" secondAttribute="leading" id="GCq-AT-7w2"/>
+                        <constraint firstItem="v36-s4-S4R" firstAttribute="top" secondItem="IiD-iM-Sbf" secondAttribute="top" id="qOF-5I-FMf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.047058823530000002" green="0.062745098040000002" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IiD-iM-Sbf" secondAttribute="bottom" id="1yT-5x-FfY"/>
+                <constraint firstItem="IiD-iM-Sbf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TgJ-vd-wJs"/>
+                <constraint firstItem="IiD-iM-Sbf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e7V-dw-nT3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IiD-iM-Sbf" secondAttribute="trailing" id="nVC-4b-lJ7"/>
+            </constraints>
+            <point key="canvasLocation" x="83" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backarrow" width="64" height="64"/>
+    </resources>
+</document>

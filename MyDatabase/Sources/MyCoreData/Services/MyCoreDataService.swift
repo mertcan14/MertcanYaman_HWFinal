@@ -29,12 +29,11 @@ public enum CoreDataError: Error {
 public class MyCoreDataService {
     public static let shared = MyCoreDataService()
     /// Fetch data from Core Data
-    public func fetchWordHistory(_ persistentContainer: NSPersistentContainer,
-                                 entityName: String,
+    public func fetchMusic(_ persistentContainer: NSPersistentContainer,
                                  completion: @escaping (Result<[SavedMusic], CoreDataError>) -> Void)
     {
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Song")
         
         do {
             let results = try context.fetch(fetchRequest)
@@ -66,8 +65,31 @@ public class MyCoreDataService {
         }
     }
     
+    public func fetchPlayList(_ persistentContainer: NSPersistentContainer,
+                                 completion: @escaping (Result<[PlayListData], CoreDataError>) -> Void)
+    {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PlayList")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            if results.count > 0 {
+                var playLists: [PlayListData] = []
+                for result in results as! [NSManagedObject] {
+                    let name = result.value(forKey: "name") as? String ?? nil
+                    
+                    let playList = PlayListData(name: name)
+                    playLists.append(playList)
+                }
+                completion(.success(playLists))
+            }
+        }catch {
+            completion(.failure(.operationFailed))
+        }
+    }
+    
     /// Add data from Core Data 
-    public func addWordHistory( persistentContainer: NSPersistentContainer,
+    public func addObj( persistentContainer: NSPersistentContainer,
                                 entityName: String,
                                 addObj: [String:Any],
                                 completion: @escaping (Result<Bool, CoreDataError>) -> Void) {

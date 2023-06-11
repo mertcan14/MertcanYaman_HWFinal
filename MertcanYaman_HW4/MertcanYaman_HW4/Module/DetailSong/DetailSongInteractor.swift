@@ -29,22 +29,38 @@ extension DetailSongInteractor: DetailSongInteractorProtocol {
     
     func fetchSavedMusic() {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
-        MyCoreDataService.shared.fetchWordHistory(persistentContainer, entityName: "Song") { [weak self] response in
+        MyCoreDataService.shared.fetchMusic(persistentContainer) { [weak self] response in
             switch response {
                 
             case .success(let data):
-                print(data)
+                print("data")
             case .failure(let error):
                 print(error)
             }
-        }
+       }
     }
     
     func savedMusic(_ entityName: String, _ addObj: [String:Any]) {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
-        MyCoreDataService.shared.addWordHistory(
+        MyCoreDataService.shared.addObj(
             persistentContainer: persistentContainer,
             entityName: entityName,
+            addObj: addObj
+        ) { [weak self] response in
+            switch response {
+
+            case .success(let success):
+                self?.output?.checkSavedFunc(success)
+            case .failure(let error):
+                self?.output?.showError(error.message ?? "Error")
+            }
+        }
+        var addObj = [
+            "name": "Populer"
+        ]
+        MyCoreDataService.shared.addObj(
+            persistentContainer: persistentContainer,
+            entityName: "PlayList",
             addObj: addObj
         ) { [weak self] response in
             switch response {

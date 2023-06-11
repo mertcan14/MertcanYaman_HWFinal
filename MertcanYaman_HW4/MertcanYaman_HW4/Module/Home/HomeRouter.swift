@@ -46,12 +46,6 @@ extension HomeRouter: HomeRouterProtocol {
         case .detailSong(let music):
             let detailSongVC = DetailSongRouter.createModule()
             detailSongVC.presenter.setMusic(music)
-//            detailSongVC.modalPresentationStyle = .fullScreen
-//            detailSongVC.modalTransitionStyle = .coverVertical
-//            self.viewController?.present(detailSongVC, animated: true)
-            
-//            let navigationController = UINavigationController(rootViewController: detailSongVC)
-//            window.rootViewController = navigationController
             viewController?.navigationController?.pushViewController(detailSongVC, animated: true)
         }
         
