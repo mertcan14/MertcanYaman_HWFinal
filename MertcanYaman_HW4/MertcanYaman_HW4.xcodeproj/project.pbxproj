@@ -62,6 +62,8 @@
 		E59FAB3E2A35385A00F328D7 /* AddPlayListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FAB3D2A35385A00F328D7 /* AddPlayListRouter.swift */; };
 		E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */; };
 		E5A0C2BD2A3323B300FFB853 /* CircleButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */; };
+		E5C1A3EB2A3643910068D38A /* SongTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1A3EA2A3643910068D38A /* SongTabBarController.swift */; };
+		E5C1A3ED2A36446E0068D38A /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */; };
 		E5C239C52A33DC710033A0FB /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E5C239C42A33DC710033A0FB /* MyCoreData */; };
 		E5C239C72A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */; };
 		E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332DD2A313937005DA42E /* HomeViewController.swift */; };
@@ -145,6 +147,8 @@
 		E59FAB3D2A35385A00F328D7 /* AddPlayListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayListRouter.swift; sourceTree = "<group>"; };
 		E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleButton.xib; sourceTree = "<group>"; };
+		E5C1A3EA2A3643910068D38A /* SongTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTabBarController.swift; sourceTree = "<group>"; };
+		E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
 		E5D332DD2A313937005DA42E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5D332DE2A313937005DA42E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 		E59E1A4A2A307A2C002FBFA5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				E5C1A3E92A3643220068D38A /* TabBar */,
 				E59FAB342A3537F900F328D7 /* AddPlayList */,
 				E59D08212A345D2400C26B3C /* PlayList */,
 				E504C26E2A321F5A00CAE72E /* DetailSong */,
@@ -423,6 +428,15 @@
 				E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5C1A3E92A3643220068D38A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E5C1A3EA2A3643910068D38A /* SongTabBarController.swift */,
+				E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C1A3EB2A3643910068D38A /* SongTabBarController.swift in Sources */,
 				E53F19952A2F510700DCD915 /* MusicService+Extension.swift in Sources */,
 				E59E1A5A2A308249002FBFA5 /* SplashInteractor.swift in Sources */,
 				E59E1A762A30AE24002FBFA5 /* HomePresenter.swift in Sources */,
@@ -602,6 +617,7 @@
 				E59FAB3C2A35385100F328D7 /* AddPlayListInteractor.swift in Sources */,
 				E53F19972A2F52E400DCD915 /* ArtistURL.swift in Sources */,
 				E59D08242A345D4700C26B3C /* PlayListViewController.swift in Sources */,
+				E5C1A3ED2A36446E0068D38A /* TabBarRouter.swift in Sources */,
 				E59FAB322A352EBF00F328D7 /* PlayListTableViewCell.swift in Sources */,
 				E594B82D2A2F4D2700B7B87E /* MertcanYaman_HW4.xcdatamodeld in Sources */,
 				E5C239C72A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift in Sources */,

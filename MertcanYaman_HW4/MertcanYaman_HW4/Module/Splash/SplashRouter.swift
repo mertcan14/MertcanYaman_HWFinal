@@ -39,11 +39,17 @@ extension SplashRouter: SplashRouterProtocol {
         switch route {
             
         case .homeScreen:
+            let subModules = (
+                home: HomeRouter.createModule(),
+                playList: PlayListRouter.createModule()
+            )
+            let tabBarController = TabBarRouter.createModule(usingSubModules: subModules)
+            
 //            let homeVC = HomeRouter.createModule()
 //            let navigationController = UINavigationController(rootViewController: homeVC)
 //            window.rootViewController = navigationController
-            let playList = PlayListRouter.createModule()
-            let navigationController = UINavigationController(rootViewController: playList)
+            //let playList = PlayListRouter.createModule()
+            let navigationController = UINavigationController(rootViewController: tabBarController)
             window.rootViewController = navigationController
         case .noInternetScreen:
             let noInternetVC = NoInternetRouter.createModule()
