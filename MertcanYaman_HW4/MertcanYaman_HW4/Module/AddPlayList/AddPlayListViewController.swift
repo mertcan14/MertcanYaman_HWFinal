@@ -15,6 +15,7 @@ final class AddPlayListViewController: BaseViewController {
 
     var presenter: AddPlayListPresenterProtocol!
     
+    @IBOutlet weak var playListTextField: UITextField!
     @IBOutlet weak var backArrowImage: UIImageView!
     
     override func viewDidLoad() {
@@ -26,6 +27,11 @@ final class AddPlayListViewController: BaseViewController {
     @objc func back() {
         presenter.goPreviousScreen()
     }
+    
+    @IBAction func saveBtnClicked(_ sender: Any) {
+        presenter.addPlayList(playListTextField.text ?? "")
+    }
+    
 }
 
 extension AddPlayListViewController: AddPlayListViewControllerProtocol{

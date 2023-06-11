@@ -14,6 +14,7 @@ protocol PlayListPresenterProtocol {
     var numberOfPlayList: Int { get }
     
     func viewDidLoad()
+    func fetchPlayList()
     func getPlayListByIndex(_ index: Int) -> PlayListData?
     func goAddPlayListScreen()
 }
@@ -25,7 +26,6 @@ final class PlayListPresenter {
     
     var playList: [PlayListData] = [] {
         didSet {
-            view.hideLoading()
             view.reloadData()
         }
     }
@@ -38,6 +38,10 @@ final class PlayListPresenter {
 }
 
 extension PlayListPresenter: PlayListPresenterProtocol {
+    
+    func fetchPlayList() {
+        interactor.fetchPlayList()
+    }
     
     func goAddPlayListScreen() {
         router.navigate(.addPlayList)
@@ -52,7 +56,6 @@ extension PlayListPresenter: PlayListPresenterProtocol {
     }
     
     func viewDidLoad() {
-        interactor.fetchPlayList()
         view.setTableView()
     }
     
@@ -62,6 +65,7 @@ extension PlayListPresenter: PlayListInteractorOutputProtocol {
     
     func fetchPlayList(_ data: [PlayListData]) {
         self.playList = data
+        view.hideLoading()
     }
     
 }

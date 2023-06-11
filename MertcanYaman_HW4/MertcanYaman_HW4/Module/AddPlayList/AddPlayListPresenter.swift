@@ -9,6 +9,7 @@ import Foundation
 
 protocol AddPlayListPresenterProtocol {
     func goPreviousScreen()
+    func addPlayList(_ name: String)
 }
 
 final class AddPlayListPresenter {
@@ -31,6 +32,10 @@ final class AddPlayListPresenter {
 
 extension AddPlayListPresenter: AddPlayListPresenterProtocol {
     
+    func addPlayList(_ name: String) {
+        interactor.addPlayList(name)
+    }
+    
     func goPreviousScreen() {
         router.navigate(.goPreviousPage)
     }
@@ -38,5 +43,11 @@ extension AddPlayListPresenter: AddPlayListPresenterProtocol {
 }
 
 extension AddPlayListPresenter: AddPlayListInteractorOutputProtocol {
+    
+    func successAddPlayList(_ success: Bool) {
+        if success {
+            router.navigate(.goPreviousPage)
+        }
+    }
     
 }

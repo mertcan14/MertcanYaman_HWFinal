@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import MyCoreData
 
 protocol AddPlayListInteractorProtocol {
-    
+    func addPlayList(_ name: String)
 }
 
 protocol AddPlayListInteractorOutputProtocol {
-    
+    func successAddPlayList(_ success: Bool)
 }
 
 final class AddPlayListInteractor {
@@ -20,5 +21,18 @@ final class AddPlayListInteractor {
 }
 
 extension AddPlayListInteractor: AddPlayListInteractorProtocol {
+    
+    func addPlayList(_ name: String) {
+        guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
+        MyCoreDataService.shared.addObj(persistentContainer: persistentContainer, entityName: "PlayList", addObj: ["name": name]) { [weak self] response in
+            switch response {
+                
+            case .success(let success):
+                self?.output?.successAddPlayList(success)
+            case .failure(let error):
+                print(error.message)
+            }
+        }
+    }
     
 }

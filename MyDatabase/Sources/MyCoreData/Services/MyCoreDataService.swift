@@ -11,6 +11,7 @@ import CoreData
 public enum CoreDataError: Error {
     case operationFailed
     case maxObjectNegative
+    case emptyValue
     case error(Error)
     
     public var message: String? {
@@ -19,7 +20,8 @@ public enum CoreDataError: Error {
             return "We encountered an unexpected error"
         case .maxObjectNegative:
             return "The value to be returned cannot be negative."
-            
+        case .emptyValue:
+            return "Searched data not found"
         case .error(let error):
             return error.localizedDescription
         }
@@ -82,6 +84,8 @@ public class MyCoreDataService {
                     playLists.append(playList)
                 }
                 completion(.success(playLists))
+            }else {
+                completion(.success([]))
             }
         }catch {
             completion(.failure(.operationFailed))

@@ -26,6 +26,7 @@ final class PlayListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        presenter.fetchPlayList()
     }
     
     @IBAction func addBtnClicked(_ sender: Any) {
@@ -62,6 +63,7 @@ extension PlayListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        70
+        80
     }
+    
 }
