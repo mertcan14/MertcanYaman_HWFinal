@@ -52,7 +52,7 @@ extension PlayListPresenter: PlayListPresenterProtocol {
     }
     
     var numberOfPlayList: Int {
-        playList.count
+        playList.count + 1
     }
     
     func viewDidLoad() {

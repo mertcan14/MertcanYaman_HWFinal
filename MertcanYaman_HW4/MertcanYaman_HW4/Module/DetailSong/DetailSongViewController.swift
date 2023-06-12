@@ -11,12 +11,14 @@ import SDWebImage
 protocol DetailSongViewControllerProtocol: AnyObject, BaseViewControllerProtocol {
     func reloadData()
     func setupData(_ imageUrl: URL, _ title: String, _ artist: String)
+    func changeHeartIcon(_ success: Bool)
 }
 
 final class DetailSongViewController: BaseViewController {
     
     var presenter: DetailSongPresenterProtocol!
     
+    @IBOutlet weak var playListCircleBtn: CircleButton!
     @IBOutlet weak var nextCircleBtn: CircleButton!
     @IBOutlet weak var saveSongView: CircleButton!
     @IBOutlet weak var playCircleBtn: CircleButton!
@@ -42,13 +44,14 @@ final class DetailSongViewController: BaseViewController {
         let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playCircleBtn.addGestureRecognizer(playSongTap)
         playSongTap.circleBtn = playCircleBtn
-        playSongTap.closure = {
-            self.presenter.fetchSavedMusicFromCoreData()
-        }
         
         let nextSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         nextCircleBtn.addGestureRecognizer(nextSongTap)
         nextSongTap.circleBtn = nextCircleBtn
+        
+        let playListTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
+        playListCircleBtn.addGestureRecognizer(playListTap)
+        playListTap.circleBtn = playListCircleBtn
         
         let previousSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         previousMusicBtn.addGestureRecognizer(previousSongTap)
@@ -71,6 +74,9 @@ final class DetailSongViewController: BaseViewController {
         playCircleBtn.layer.cornerRadius = playCircleBtn.bounds.width / 2
         playCircleBtn.layer.masksToBounds = true
         
+        playListCircleBtn.layer.cornerRadius = playListCircleBtn.bounds.width / 2
+        playListCircleBtn.layer.masksToBounds = true
+        
         saveSongView.layer.cornerRadius = saveSongView.bounds.width / 2
         saveSongView.layer.masksToBounds = true
         
@@ -79,8 +85,12 @@ final class DetailSongViewController: BaseViewController {
         
         previousMusicBtn.setup("previous", nil, UIColor(hexString: "#141921"), nil)
         playCircleBtn.setup("play", "pause", UIColor(hexString: "#141921"), .white)
-        saveSongView.setup("emptyheart", "fillheart", UIColor(hexString: "#141921"), nil)
         nextCircleBtn.setup("next", nil, UIColor(hexString: "#141921"), nil)
+        playListCircleBtn.setup("playlist", nil, UIColor(hexString: "#141921"), nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter.viewDidAppear()
     }
     
     func setImage(_ url: URL) {
@@ -107,6 +117,15 @@ final class DetailSongViewController: BaseViewController {
 }
 
 extension DetailSongViewController: DetailSongViewControllerProtocol {
+    
+    func changeHeartIcon(_ success: Bool) {
+        hideLoading()
+        if success {
+            saveSongView.setup("fillheart", "emptyheart", UIColor(hexString: "#141921"), nil)
+        }else {
+            saveSongView.setup("emptyheart", "fillheart", UIColor(hexString: "#141921"), nil)
+        }
+    }
     
     func reloadData() {
         

@@ -2,6 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PlayList" representedClassName="PlayList" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Song" representedClassName="Song" syncable="YES" codeGenerationType="class">
         <attribute name="artistName" optional="YES" attributeType="String"/>
@@ -11,5 +16,11 @@
         <attribute name="primaryGenreName" optional="YES" attributeType="String"/>
         <attribute name="trackId" optional="YES" attributeType="String"/>
         <attribute name="trackName" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="trackId"/>
+                <constraint value="playListName"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>

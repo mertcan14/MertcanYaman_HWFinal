@@ -11,12 +11,14 @@ import CoreData
 
 protocol DetailSongInteractorProtocol {
     func savedMusic(_ entityName: String, _ addObj: [String:Any])
-    func fetchSavedMusic()
+    func fetchPlayList()
+    func checkIsLiked(_ addObj: [String:Any])
 }
 
 protocol DetailSongInteractorOutputProtocol: AnyObject {
     func checkSavedFunc(_ success: Bool)
     func showError(_ error: String)
+    func isLiked(_ success: Bool)
 }
 
 final class DetailSongInteractor {
@@ -27,17 +29,32 @@ final class DetailSongInteractor {
 
 extension DetailSongInteractor: DetailSongInteractorProtocol {
     
-    func fetchSavedMusic() {
+    func checkIsLiked(_ addObj: [String : Any]) {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
-        MyCoreDataService.shared.fetchMusic(persistentContainer) { [weak self] response in
+        MyCoreDataService.shared.checkObject(persistentContainer, entityName: "Song", checkAttribute: addObj) { [weak self] response in
+            guard let self else { return }
             switch response {
                 
             case .success(let data):
-                print("data")
+                self.output?.isLiked(data)
             case .failure(let error):
                 print(error)
             }
-       }
+        }
+    }
+    
+    func fetchPlayList() {
+        guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
+        MyCoreDataService.shared.fetchPlayList(persistentContainer) { [weak self] response in
+            guard let self else { return }
+            switch response {
+                
+            case .success(let data):
+                print(data.count)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func savedMusic(_ entityName: String, _ addObj: [String:Any]) {

@@ -33,7 +33,14 @@ final class AddPlayListPresenter {
 extension AddPlayListPresenter: AddPlayListPresenterProtocol {
     
     func addPlayList(_ name: String) {
-        interactor.addPlayList(name)
+        
+        let nameCount = name.count
+        if nameCount >= 2 && nameCount <= 50 {
+            interactor.addPlayList(name)
+        }else {
+            view.showAlert("Play List Name", "Name must be between 2 and 50 characters", nil)
+        }
+        
     }
     
     func goPreviousScreen() {

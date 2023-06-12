@@ -56,8 +56,14 @@ extension PlayListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlayListTableViewCell", for: indexPath) as! PlayListTableViewCell
-        guard let playList = presenter.getPlayListByIndex(indexPath.row) else { return cell }
+        
+        if indexPath.row == 0 {
+            cell.setup("Your Favorites", "likeplaylist")
+        }
+        
+        guard let playList = presenter.getPlayListByIndex(indexPath.row - 1) else { return cell }
         cell.setup(playList.name ?? "", "default")
         return cell
     }

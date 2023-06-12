@@ -98,6 +98,7 @@ public class MyCoreDataService {
                                 addObj: [String:Any],
                                 completion: @escaping (Result<Bool, CoreDataError>) -> Void) {
         let context = persistentContainer.viewContext
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         let wordHistory = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context)
         addObj.keys.forEach { key in
             wordHistory.setValue(addObj[key], forKey: key)
@@ -111,24 +112,32 @@ public class MyCoreDataService {
     }
     
     /// Returns Row if word is already inserted, returns nil if there is no row
-    private func checkWordHistory(_ persistentContainer: NSPersistentContainer,
+    public func checkObject(_ persistentContainer: NSPersistentContainer,
                                   entityName: String,
-                                  checkWord: String,
-                                  checkKey: String) -> NSManagedObject? {
+                                 checkAttribute: [String:Any],
+                                 completion: @escaping (Result<Bool, CoreDataError>) -> Void) {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let predicate = NSPredicate(format: "\(checkKey) = %@", "\(checkWord)")
+        var keys: [String:NSPredicate] = [:]
+        
+        for key in checkAttribute.keys {
+            keys[key] = NSPredicate(format: "\(key) = %@", "\(checkAttribute[key] ?? "")")
+        }
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: keys.values.map({ predicate in
+            return predicate
+        }))
+        
         fetchRequest.predicate = predicate
         do {
             let results = try context.fetch(fetchRequest)
             if results.count > 0 {
-                for result in results as! [NSManagedObject] {
-                    return result
-                }
+                completion(.success(true))
+            }else {
+                completion(.success(false))
             }
         }catch {
-            return nil
+            completion(.failure(.operationFailed))
         }
-        return nil
     }
 }

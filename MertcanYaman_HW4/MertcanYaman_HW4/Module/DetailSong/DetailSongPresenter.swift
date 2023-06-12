@@ -12,7 +12,7 @@ protocol DetailSongPresenterProtocol {
     func viewWillAppear()
     func goPreviousScreen()
     func saveMusicFromCoreData()
-    func fetchSavedMusicFromCoreData()
+    func viewDidAppear()
 }
 
 final class DetailSongPresenter {
@@ -36,7 +36,7 @@ final class DetailSongPresenter {
         let addWord: [String: Any] = [
             "artistName": music?.artistName ?? "",
             "artworkUrl100": music?.artworkUrl100 ?? "",
-            "playListName": "My List",
+            "playListName": "",
             "previewUrl": music?.previewURL ?? "",
             "primaryGenreName": music?.primaryGenreName ?? "",
             "trackId": String(music?.trackID ?? 0),
@@ -49,10 +49,6 @@ final class DetailSongPresenter {
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {
     
-    func fetchSavedMusicFromCoreData() {
-        self.interactor.fetchSavedMusic()
-    }
-    
     func saveMusicFromCoreData() {
         self.interactor.savedMusic("Song", setSavedMusic())
     }
@@ -62,6 +58,7 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
     }
 
     func viewWillAppear() {
+        view.showLoading()
         guard let imageUrl = music?.artworkUrl100,
               let songName = music?.trackName,
               let artistName = music?.artistName else { return }
@@ -71,6 +68,11 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
         self.view.setupData(url, songName, artistName)
     }
     
+    func viewDidAppear() {
+        guard let trackId = music?.trackID else { return }
+        interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
+    }
+    
     func setMusic(_ music: Music) {
         self.music = music
     }
@@ -78,6 +80,10 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
 }
 
 extension DetailSongPresenter: DetailSongInteractorOutputProtocol {
+    
+    func isLiked(_ success: Bool) {
+        self.view.changeHeartIcon(success)
+    }
     
     func checkSavedFunc(_ success: Bool) {
         print(success)
