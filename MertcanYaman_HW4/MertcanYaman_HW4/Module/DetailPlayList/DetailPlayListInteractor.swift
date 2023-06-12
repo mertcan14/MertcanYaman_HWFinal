@@ -10,10 +10,12 @@ import MyCoreData
 
 protocol DetailPlayListInteractorProtocol {
     func fetchSavedMusicByListName(_ listName: String)
+    func deleteSavedMusic(_ deleteObj: [String:Any])
 }
 
 protocol DetailPlayListInteractorOutputProtocol {
     func getSavedMusic(_ songs: [SavedMusic])
+    func checkDeleteMusic(_ success: Bool)
 }
 
 final class DetailPlayListInteractor {
@@ -21,6 +23,20 @@ final class DetailPlayListInteractor {
 }
 
 extension DetailPlayListInteractor: DetailPlayListInteractorProtocol {
+    
+    func deleteSavedMusic(_ deleteObj: [String : Any]) {
+        guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
+        MyCoreDataService.shared.deleteMusic(persistentContainer, deleteObj) { [weak self] response in
+            guard let self else { return }
+            switch response {
+                
+            case .success(let data):
+                self.output?.checkDeleteMusic(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     func fetchSavedMusicByListName(_ listName: String) {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }

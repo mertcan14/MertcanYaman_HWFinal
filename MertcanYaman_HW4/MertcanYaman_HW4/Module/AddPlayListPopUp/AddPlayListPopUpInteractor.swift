@@ -10,6 +10,7 @@ import MyCoreData
 
 protocol AddPlayListPopUpInteractorProtocol {    
     func fetchPlayList()
+    func addSong(_ addObj: [String:Any])
 }
 
 protocol AddPlayListPopUpInteractorOutputProtocol {
@@ -21,6 +22,19 @@ final class AddPlayListPopUpInteractor {
 }
 
 extension AddPlayListPopUpInteractor: AddPlayListPopUpInteractorProtocol {
+    func addSong(_ addObj: [String : Any]) {
+        guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
+        MyCoreDataService.shared.addObj(persistentContainer: persistentContainer, entityName: "Song", addObj: addObj) { [weak self] response in
+            guard let self else { return }
+            switch response {
+            case .success(let success):
+                print(success)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func fetchPlayList() {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
         MyCoreDataService.shared.fetchPlayList(persistentContainer) { [weak self] response in

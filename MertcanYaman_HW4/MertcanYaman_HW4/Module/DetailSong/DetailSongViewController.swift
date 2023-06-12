@@ -12,6 +12,7 @@ protocol DetailSongViewControllerProtocol: AnyObject, BaseViewControllerProtocol
     func reloadData()
     func setupData(_ imageUrl: URL, _ title: String, _ artist: String)
     func changeHeartIcon(_ success: Bool)
+    func checkDeleteLike()
 }
 
 final class DetailSongViewController: BaseViewController {
@@ -38,7 +39,7 @@ final class DetailSongViewController: BaseViewController {
         saveSongView.addGestureRecognizer(saveSongTap)
         saveSongTap.circleBtn = saveSongView
         saveSongTap.closure = {
-            self.presenter.saveMusicFromCoreData()
+            self.presenter.likeBtnClicked()
         }
         
         let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
@@ -109,11 +110,13 @@ final class DetailSongViewController: BaseViewController {
     }
     
     func getPopUp() {
+        guard let music = presenter.getMusic() else { return }
         let viewPopUp = AddPlayListPopUp()
         let interactorPopUp = AddPlayListPopUpInteractor()
         let presenterPopUp = AddPlayListPopUpPresenter(viewPopUp, interactorPopUp)
         interactorPopUp.output = presenterPopUp
         viewPopUp.presenter = presenterPopUp
+        viewPopUp.presenter.setMusic(music)
         viewPopUp.appear(sender: self)
     }
     
@@ -129,6 +132,17 @@ final class DetailSongViewController: BaseViewController {
 }
 
 extension DetailSongViewController: DetailSongViewControllerProtocol {
+    
+    func checkDeleteLike() {
+        let alert = UIAlertController(title: "Delete Song", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.default, handler: { action in
+            self.presenter.deleteLikeSong()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { action in
+            self.saveSongView.changeImageAndColor()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func changeHeartIcon(_ success: Bool) {
         hideLoading()

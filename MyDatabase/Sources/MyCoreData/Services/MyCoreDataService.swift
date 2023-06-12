@@ -116,9 +116,9 @@ public class MyCoreDataService {
     
     /// Returns Row if word is already inserted, returns nil if there is no row
     public func checkObject(_ persistentContainer: NSPersistentContainer,
-                                  entityName: String,
-                                 checkAttribute: [String:Any],
-                                 completion: @escaping (Result<Bool, CoreDataError>) -> Void) {
+                            entityName: String,
+                            checkAttribute: [String:Any],
+                            completion: @escaping (Result<Bool, CoreDataError>) -> Void) {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         var keys: [String:NSPredicate] = [:]
@@ -139,6 +139,38 @@ public class MyCoreDataService {
             }else {
                 completion(.success(false))
             }
+        }catch {
+            completion(.failure(.operationFailed))
+        }
+    }
+    
+    public func deleteMusic(
+        _ persistentContainer: NSPersistentContainer,
+        _ removeObj: [String:Any],
+        completion: @escaping (Result<Bool, CoreDataError>) -> Void
+    ) {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Song")
+        var keys: [String:NSPredicate] = [:]
+        
+        for key in removeObj.keys {
+            keys[key] = NSPredicate(format: "\(key) = %@", "\(removeObj[key] ?? "")")
+        }
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: keys.values.map({ predicate in
+            return predicate
+        }))
+        
+        fetchRequest.predicate = predicate
+        do {
+            let results = try context.fetch(fetchRequest)
+            guard let result = results.first as? NSManagedObject else {
+                completion(.success(false))
+                return
+            }
+            context.delete(result)
+            try context.save()
+            completion(.success(true))
         }catch {
             completion(.failure(.operationFailed))
         }

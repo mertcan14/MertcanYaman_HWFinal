@@ -410,12 +410,12 @@
 		E59E1A6C2A30AD9D002FBFA5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E59B6E932A31C14D00D9B922 /* View */,
 				E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */,
 				E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */,
 				E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */,
 				E5D332DD2A313937005DA42E /* HomeViewController.swift */,
 				E5D332DE2A313937005DA42E /* HomeViewController.xib */,
-				E59B6E932A31C14D00D9B922 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";

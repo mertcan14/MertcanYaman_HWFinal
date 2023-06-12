@@ -19,6 +19,7 @@ protocol DetailPlayListPresenterProtocol {
     func setName(_ name: String)
     func viewDidLoad()
     func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String)?
+    func deleteSong(_ index: Int)
 }
 
 final class DetailPlayListPresenter {
@@ -49,6 +50,16 @@ final class DetailPlayListPresenter {
 }
 
 extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
+    
+    func deleteSong(_ index: Int) {
+        guard let song = savedMusics[safe: index] else { return }
+        let removeObj: [String : Any] = [
+            "trackId": song.trackId ?? "",
+            "playListName": name ?? "a"
+        ]
+        savedMusics.remove(at: index)
+        interactor.deleteSavedMusic(removeObj)
+    }
     
     var numberOfSavedMusics: Int {
         self.savedMusics.count
@@ -82,6 +93,14 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
 }
 
 extension DetailPlayListPresenter: DetailPlayListInteractorOutputProtocol {
+    
+    func checkDeleteMusic(_ success: Bool) {
+        if !success{
+            view.showAlert("Error", "Delete operation failed", nil)
+        }else {
+            view.reloadData()
+        }
+    }
     
     func getSavedMusic(_ songs: [SavedMusic]) {
         view.hideLoading()

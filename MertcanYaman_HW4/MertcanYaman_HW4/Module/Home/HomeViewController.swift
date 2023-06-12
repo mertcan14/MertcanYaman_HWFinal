@@ -25,11 +25,13 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+        
+        searchBarTxt.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.presenter.viewWillAppear()
-    }    
+    }
 }
 
 extension HomeViewController: HomeViewControllerProtocol {
@@ -63,19 +65,19 @@ extension HomeViewController: HomeViewControllerProtocol {
 }
 
 extension HomeViewController: UITextFieldDelegate {
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         timer?.invalidate()
         let currentText = textField.text ?? ""
         if (currentText as NSString).replacingCharacters(in: range, with: string).count >= 2 {
-
-             timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(performSearch), userInfo: nil, repeats: false)
+            
+            timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(performSearch), userInfo: nil, repeats: false)
         }
-
+        
         return true
     }
-
+    
     @objc func performSearch() {
         guard let term = searchBarTxt.text else { return }
         self.showLoading()
@@ -86,6 +88,9 @@ extension HomeViewController: UITextFieldDelegate {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if presenter.numberOfMusics == 0 {
+            tableView.setEmptyView(title: "You need to search", message: "You can search above")
+        }
         return presenter.numberOfMusics
     }
     
@@ -103,6 +108,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter.goDetailSong(indexPath.row)
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      if  searchText.count == 0 {
+          presenter.removeSongs()
+          
+      }
     }
 }
 

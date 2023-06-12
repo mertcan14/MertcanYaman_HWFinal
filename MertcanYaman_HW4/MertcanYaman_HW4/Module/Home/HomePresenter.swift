@@ -17,6 +17,7 @@ protocol HomePresenterProtocol {
     func viewDidLoad()
     func viewWillAppear()
     func goDetailSong(_ index: Int)
+    func removeSongs()
 }
 
 final class HomePresenter {
@@ -30,12 +31,7 @@ final class HomePresenter {
             self.view.reloadData()
         }
     }
-    var artistResult: [Artist] = [] {
-        didSet {
-            self.view.hideLoading()
-            self.view.reloadData()
-        }
-    }
+
     var musicCount: Int = 0
     
     init(
@@ -50,6 +46,11 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
+    func removeSongs() {
+        self.musicResult = []
+        self.musicCount = 0
+    }
     
     func goDetailSong(_ index: Int) {
         guard let song = self.musicResult[safe: index] else { return }

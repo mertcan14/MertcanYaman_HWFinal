@@ -57,7 +57,11 @@ extension DetailPlayListViewController: DetailPlayListViewControllerProtocol {
 extension DetailPlayListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.numberOfSavedMusics
+        
+        if presenter.numberOfSavedMusics == 0 {
+            tableView.setEmptyView(title: "Song Not Found", message: "You can quickly access the songs later by adding them.")
+        }
+        return presenter.numberOfSavedMusics
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,6 +70,18 @@ extension DetailPlayListViewController: UITableViewDelegate, UITableViewDataSour
               let url = URL(string: music.0) else { return cell }
         cell.setup(url, music.1, music.2)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.deleteSong(indexPath.row)
+        }else {
+            print("Merhaba")
+        }
     }
     
 }

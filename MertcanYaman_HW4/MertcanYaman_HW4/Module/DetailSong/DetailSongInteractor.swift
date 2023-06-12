@@ -11,6 +11,7 @@ import CoreData
 
 protocol DetailSongInteractorProtocol {
     func savedMusic(_ entityName: String, _ addObj: [String:Any])
+    func removeSaveMusic(_ entityName: String, _ removeObj: [String:Any])
     func checkIsLiked(_ addObj: [String:Any])
 }
 
@@ -27,6 +28,20 @@ final class DetailSongInteractor {
 }
 
 extension DetailSongInteractor: DetailSongInteractorProtocol {
+    
+    func removeSaveMusic(_ entityName: String, _ removeObj: [String:Any]) {
+        guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
+        MyCoreDataService.shared.deleteMusic(persistentContainer, removeObj) { [weak self] response in
+            guard let self else { return }
+            switch response {
+                
+            case .success(let data):
+                print(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     func checkIsLiked(_ addObj: [String : Any]) {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
@@ -49,22 +64,6 @@ extension DetailSongInteractor: DetailSongInteractorProtocol {
         MyCoreDataService.shared.addObj(
             persistentContainer: persistentContainer,
             entityName: entityName,
-            addObj: addObj
-        ) { [weak self] response in
-            switch response {
-
-            case .success(let success):
-                self?.output?.checkSavedFunc(success)
-            case .failure(let error):
-                self?.output?.showError(error.message ?? "Error")
-            }
-        }
-        var addObj = [
-            "name": "Populer"
-        ]
-        MyCoreDataService.shared.addObj(
-            persistentContainer: persistentContainer,
-            entityName: "PlayList",
             addObj: addObj
         ) { [weak self] response in
             switch response {

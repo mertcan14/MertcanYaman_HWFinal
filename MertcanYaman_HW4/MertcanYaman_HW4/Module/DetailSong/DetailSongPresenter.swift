@@ -11,8 +11,10 @@ protocol DetailSongPresenterProtocol {
     func setMusic(_ music: Music)
     func viewWillAppear()
     func goPreviousScreen()
-    func saveMusicFromCoreData()
     func viewDidAppear()
+    func getMusic() -> Music?
+    func likeBtnClicked()
+    func deleteLikeSong()
 }
 
 final class DetailSongPresenter {
@@ -21,6 +23,7 @@ final class DetailSongPresenter {
     let router: DetailSongRouterProtocol
     let interactor: DetailSongInteractorProtocol
     var music: Music?
+    var isLike: Bool = false
     
     init(
         _ view: DetailSongViewControllerProtocol,
@@ -62,8 +65,24 @@ final class DetailSongPresenter {
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {
     
-    func saveMusicFromCoreData() {
-        self.interactor.savedMusic("Song", setSavedMusic())
+    func deleteLikeSong() {
+        let removeObj: [String : Any] = [
+            "trackId": music?.trackID ?? "",
+            "playListName": ""
+        ]
+        self.interactor.removeSaveMusic("Song", removeObj)
+    }
+    
+    func likeBtnClicked() {
+        if isLike {
+            view.checkDeleteLike()
+        }else {
+            self.interactor.savedMusic("Song", setSavedMusic())
+        }
+    }
+    
+    func getMusic() -> Music? {
+        self.music
     }
     
     func goPreviousScreen() {
@@ -95,11 +114,12 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
 extension DetailSongPresenter: DetailSongInteractorOutputProtocol {
     
     func isLiked(_ success: Bool) {
+        isLike = success
         self.view.changeHeartIcon(success)
     }
     
     func checkSavedFunc(_ success: Bool) {
-        print(success)
+        isLike = success
     }
     
     func showError(_ error: String) {

@@ -12,12 +12,15 @@ typealias SongTabs = (
     playList: UIViewController
 )
 
-class SongTabBarController: UITabBarController {
+final class SongTabBarController: UITabBarController {
     
     init(tabs: SongTabs) {
         super.init(nibName: nil, bundle: nil)
         
         viewControllers = [tabs.home, tabs.playList]
+        tabBar.backgroundColor = UIColor(hexString: "#050505")
+        tabBar.unselectedItemTintColor = .white
+        tabBar.tintColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -26,7 +29,6 @@ class SongTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = .red
     }
 
 }
