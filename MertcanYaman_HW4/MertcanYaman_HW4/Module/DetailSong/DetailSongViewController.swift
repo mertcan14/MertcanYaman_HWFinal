@@ -52,6 +52,9 @@ final class DetailSongViewController: BaseViewController {
         let playListTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playListCircleBtn.addGestureRecognizer(playListTap)
         playListTap.circleBtn = playListCircleBtn
+        playListTap.closure = {
+            self.getPopUp()
+        }
         
         let previousSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         previousMusicBtn.addGestureRecognizer(previousSongTap)
@@ -103,6 +106,15 @@ final class DetailSongViewController: BaseViewController {
     
     func setArtistName(_ artistName: String) {
         self.artistNameLabel.text = artistName
+    }
+    
+    func getPopUp() {
+        let viewPopUp = AddPlayListPopUp()
+        let interactorPopUp = AddPlayListPopUpInteractor()
+        let presenterPopUp = AddPlayListPopUpPresenter(viewPopUp, interactorPopUp)
+        interactorPopUp.output = presenterPopUp
+        viewPopUp.presenter = presenterPopUp
+        viewPopUp.appear(sender: self)
     }
     
     @objc func back() {

@@ -40,8 +40,7 @@ extension HomeRouter: HomeRouterProtocol {
             
         case .noInternetScreen:
             let noInternetVC = NoInternetRouter.createModule()
-            let navigationController = UINavigationController(rootViewController: noInternetVC)
-            window.rootViewController = navigationController
+            window.rootViewController = noInternetVC
             
         case .detailSong(let music):
             let detailSongVC = DetailSongRouter.createModule()

@@ -38,8 +38,12 @@ extension NoInternetRouter: NoInternetRouterProtocol {
         switch route {
             
         case .homeScreen:
-            let homeVC = HomeRouter.createModule()
-            let navigationController = UINavigationController(rootViewController: homeVC)
+            let subModules = (
+                home: HomeRouter.createModule(),
+                playList: PlayListRouter.createModule()
+            )
+            let tabBarController = TabBarRouter.createModule(usingSubModules: subModules)
+            let navigationController = UINavigationController(rootViewController: tabBarController)
             window.rootViewController = navigationController
         }
     }

@@ -32,10 +32,13 @@ public class MyCoreDataService {
     public static let shared = MyCoreDataService()
     /// Fetch data from Core Data
     public func fetchMusic(_ persistentContainer: NSPersistentContainer,
-                                 completion: @escaping (Result<[SavedMusic], CoreDataError>) -> Void)
+                           _ playListName: String,
+                             completion: @escaping (Result<[SavedMusic], CoreDataError>) -> Void)
     {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Song")
+        let predicate = NSPredicate(format: "playListName = %@", "\(playListName)")
+        fetchRequest.predicate = predicate
         
         do {
             let results = try context.fetch(fetchRequest)

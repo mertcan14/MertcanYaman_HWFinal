@@ -30,7 +30,7 @@ final class PlayListViewController: BaseViewController {
     }
     
     @IBAction func addBtnClicked(_ sender: Any) {
-        presenter.goAddPlayListScreen()
+        presenter.goOtherScreen(.addPlayList)
     }
 
 }
@@ -70,6 +70,15 @@ extension PlayListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            presenter.goOtherScreen(.detailPlayList("Your Favorites"))
+        }else {
+            guard let playList = presenter.getPlayListByIndex(indexPath.row - 1) else { return }
+            presenter.goOtherScreen(.detailPlayList(playList.name ?? ""))
+        }
     }
     
 }

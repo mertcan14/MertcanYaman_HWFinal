@@ -16,7 +16,7 @@ protocol PlayListPresenterProtocol {
     func viewDidLoad()
     func fetchPlayList()
     func getPlayListByIndex(_ index: Int) -> PlayListData?
-    func goAddPlayListScreen()
+    func goOtherScreen(_ routes: PlayListRoutes)
 }
 
 final class PlayListPresenter {
@@ -43,8 +43,8 @@ extension PlayListPresenter: PlayListPresenterProtocol {
         interactor.fetchPlayList()
     }
     
-    func goAddPlayListScreen() {
-        router.navigate(.addPlayList)
+    func goOtherScreen(_ routes: PlayListRoutes) {
+        self.router.navigate(routes)
     }
     
     func getPlayListByIndex(_ index: Int) -> PlayListData? {

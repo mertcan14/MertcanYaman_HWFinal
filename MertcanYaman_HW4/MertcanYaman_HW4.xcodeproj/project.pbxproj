@@ -69,6 +69,15 @@
 		E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332DD2A313937005DA42E /* HomeViewController.swift */; };
 		E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D332DE2A313937005DA42E /* HomeViewController.xib */; };
 		E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */; };
+		E5D43CEF2A372A22009B3941 /* DetailPlayListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43CEE2A372A22009B3941 /* DetailPlayListInteractor.swift */; };
+		E5D43CF12A372A34009B3941 /* DetailPlayListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43CF02A372A34009B3941 /* DetailPlayListPresenter.swift */; };
+		E5D43CF32A372A40009B3941 /* DetailPlayListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43CF22A372A40009B3941 /* DetailPlayListRouter.swift */; };
+		E5D43CF62A373AE6009B3941 /* DetailPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43CF42A373AE6009B3941 /* DetailPlayListViewController.swift */; };
+		E5D43CF72A373AE6009B3941 /* DetailPlayListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D43CF52A373AE6009B3941 /* DetailPlayListViewController.xib */; };
+		E5D43D002A37510C009B3941 /* AddPlayListPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43CFE2A37510C009B3941 /* AddPlayListPopUp.swift */; };
+		E5D43D012A37510C009B3941 /* AddPlayListPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D43CFF2A37510C009B3941 /* AddPlayListPopUp.xib */; };
+		E5D43D032A375215009B3941 /* AddPlayListPopUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43D022A375215009B3941 /* AddPlayListPopUpPresenter.swift */; };
+		E5D43D052A375228009B3941 /* AddPlayListPopUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D43D042A375228009B3941 /* AddPlayListPopUpInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +162,15 @@
 		E5D332DD2A313937005DA42E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5D332DE2A313937005DA42E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E5D43CEE2A372A22009B3941 /* DetailPlayListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlayListInteractor.swift; sourceTree = "<group>"; };
+		E5D43CF02A372A34009B3941 /* DetailPlayListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlayListPresenter.swift; sourceTree = "<group>"; };
+		E5D43CF22A372A40009B3941 /* DetailPlayListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlayListRouter.swift; sourceTree = "<group>"; };
+		E5D43CF42A373AE6009B3941 /* DetailPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlayListViewController.swift; sourceTree = "<group>"; };
+		E5D43CF52A373AE6009B3941 /* DetailPlayListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPlayListViewController.xib; sourceTree = "<group>"; };
+		E5D43CFE2A37510C009B3941 /* AddPlayListPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayListPopUp.swift; sourceTree = "<group>"; };
+		E5D43CFF2A37510C009B3941 /* AddPlayListPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPlayListPopUp.xib; sourceTree = "<group>"; };
+		E5D43D022A375215009B3941 /* AddPlayListPopUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayListPopUpPresenter.swift; sourceTree = "<group>"; };
+		E5D43D042A375228009B3941 /* AddPlayListPopUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayListPopUpInteractor.swift; sourceTree = "<group>"; };
 		E5D5FF082A335F690063B39F /* MyDatabase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyDatabase; path = ../MyDatabase; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,9 +279,9 @@
 				E53F19932A2F50F200DCD915 /* Extensions */,
 				E59E1A512A307DB6002FBFA5 /* Helper */,
 				E59E1A4A2A307A2C002FBFA5 /* Module */,
-				E594B8282A2F4D2700B7B87E /* Main.storyboard */,
-				E594B8302A2F4D2700B7B87E /* LaunchScreen.storyboard */,
 				E594B8332A2F4D2700B7B87E /* Info.plist */,
+				E594B8302A2F4D2700B7B87E /* LaunchScreen.storyboard */,
+				E594B8282A2F4D2700B7B87E /* Main.storyboard */,
 			);
 			path = MertcanYaman_HW4;
 			sourceTree = "<group>";
@@ -326,14 +344,16 @@
 		E59E1A4A2A307A2C002FBFA5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				E5C1A3E92A3643220068D38A /* TabBar */,
 				E59FAB342A3537F900F328D7 /* AddPlayList */,
-				E59D08212A345D2400C26B3C /* PlayList */,
-				E504C26E2A321F5A00CAE72E /* DetailSong */,
+				E5D43CFD2A375085009B3941 /* AddPlayListPopUp */,
 				E59E1A4B2A307B27002FBFA5 /* Base */,
+				E5D43CE92A372969009B3941 /* DetailPlayList */,
+				E504C26E2A321F5A00CAE72E /* DetailSong */,
 				E59E1A6C2A30AD9D002FBFA5 /* Home */,
 				E59E1A612A309152002FBFA5 /* NoInternet */,
+				E59D08212A345D2400C26B3C /* PlayList */,
 				E59E1A542A307E7F002FBFA5 /* Splash */,
+				E5C1A3E92A3643220068D38A /* TabBar */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -390,12 +410,12 @@
 		E59E1A6C2A30AD9D002FBFA5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E59B6E932A31C14D00D9B922 /* View */,
 				E59E1A712A30AE07002FBFA5 /* HomeInteractor.swift */,
 				E59E1A752A30AE24002FBFA5 /* HomePresenter.swift */,
 				E59E1A732A30AE10002FBFA5 /* HomeRouter.swift */,
 				E5D332DD2A313937005DA42E /* HomeViewController.swift */,
 				E5D332DE2A313937005DA42E /* HomeViewController.xib */,
+				E59B6E932A31C14D00D9B922 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -437,6 +457,29 @@
 				E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E5D43CE92A372969009B3941 /* DetailPlayList */ = {
+			isa = PBXGroup;
+			children = (
+				E5D43CEE2A372A22009B3941 /* DetailPlayListInteractor.swift */,
+				E5D43CF02A372A34009B3941 /* DetailPlayListPresenter.swift */,
+				E5D43CF22A372A40009B3941 /* DetailPlayListRouter.swift */,
+				E5D43CF42A373AE6009B3941 /* DetailPlayListViewController.swift */,
+				E5D43CF52A373AE6009B3941 /* DetailPlayListViewController.xib */,
+			);
+			path = DetailPlayList;
+			sourceTree = "<group>";
+		};
+		E5D43CFD2A375085009B3941 /* AddPlayListPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				E5D43CFE2A37510C009B3941 /* AddPlayListPopUp.swift */,
+				E5D43CFF2A37510C009B3941 /* AddPlayListPopUp.xib */,
+				E5D43D042A375228009B3941 /* AddPlayListPopUpInteractor.swift */,
+				E5D43D022A375215009B3941 /* AddPlayListPopUpPresenter.swift */,
+			);
+			path = AddPlayListPopUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,8 +604,10 @@
 				E59E1A652A309181002FBFA5 /* NoInternetViewController.xib in Resources */,
 				E59FAB382A35382500F328D7 /* AddPlayListViewController.xib in Resources */,
 				E59E1A602A308A7E002FBFA5 /* SplashViewController.xib in Resources */,
+				E5D43D012A37510C009B3941 /* AddPlayListPopUp.xib in Resources */,
 				E59715A22A3296CB00C31103 /* DetailSongViewController.xib in Resources */,
 				E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */,
+				E5D43CF72A373AE6009B3941 /* DetailPlayListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,15 +637,18 @@
 				E59E1A5A2A308249002FBFA5 /* SplashInteractor.swift in Sources */,
 				E59E1A762A30AE24002FBFA5 /* HomePresenter.swift in Sources */,
 				E594B8232A2F4D2700B7B87E /* AppDelegate.swift in Sources */,
+				E5D43D032A375215009B3941 /* AddPlayListPopUpPresenter.swift in Sources */,
 				E59E1A582A3081AB002FBFA5 /* SplashRouter.swift in Sources */,
 				E59E1A532A307DDF002FBFA5 /* LoadingShowable.swift in Sources */,
 				E504C2762A3226A400CAE72E /* DetailSongPresenter.swift in Sources */,
 				E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */,
 				E59E1A502A307D75002FBFA5 /* LoadingView.swift in Sources */,
+				E5D43CF32A372A40009B3941 /* DetailPlayListRouter.swift in Sources */,
 				E59D082B2A345D9000C26B3C /* PlayListRouter.swift in Sources */,
 				E504C2742A32267900CAE72E /* DetailSongInteractor.swift in Sources */,
 				E59E1A722A30AE07002FBFA5 /* HomeInteractor.swift in Sources */,
 				E594B8252A2F4D2700B7B87E /* SceneDelegate.swift in Sources */,
+				E5D43CEF2A372A22009B3941 /* DetailPlayListInteractor.swift in Sources */,
 				E504C2782A3226B000CAE72E /* DetailSongRouter.swift in Sources */,
 				E59B6E962A31C17900D9B922 /* MusicTableViewCell.swift in Sources */,
 				E59D08272A345D7600C26B3C /* PlayListPresenter.swift in Sources */,
@@ -621,6 +669,9 @@
 				E59FAB322A352EBF00F328D7 /* PlayListTableViewCell.swift in Sources */,
 				E594B82D2A2F4D2700B7B87E /* MertcanYaman_HW4.xcdatamodeld in Sources */,
 				E5C239C72A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift in Sources */,
+				E5D43D002A37510C009B3941 /* AddPlayListPopUp.swift in Sources */,
+				E5D43CF12A372A34009B3941 /* DetailPlayListPresenter.swift in Sources */,
+				E5D43CF62A373AE6009B3941 /* DetailPlayListViewController.swift in Sources */,
 				E59E1A642A309181002FBFA5 /* NoInternetViewController.swift in Sources */,
 				E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */,
 				E59FAB3A2A35384500F328D7 /* AddPlayListPresenter.swift in Sources */,
@@ -631,6 +682,7 @@
 				E504C26D2A321D9300CAE72E /* Collection+Extension.swift in Sources */,
 				E59E1A742A30AE10002FBFA5 /* HomeRouter.swift in Sources */,
 				E59FAB372A35382500F328D7 /* AddPlayListViewController.swift in Sources */,
+				E5D43D052A375228009B3941 /* AddPlayListPopUpInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

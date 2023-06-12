@@ -8,8 +8,8 @@
 import Foundation
 
 enum PlayListRoutes {
-    case detailSong
     case addPlayList
+    case detailPlayList(_ name: String)
 }
 
 protocol PlayListRouterProtocol: AnyObject {
@@ -37,8 +37,10 @@ extension PlayListRouter: PlayListRouterProtocol {
     func navigate(_ route: PlayListRoutes) {
         switch route {
             
-        case .detailSong:
-            break
+        case .detailPlayList(let name):
+            let detailPlayListVC = DetailPlayListRouter.createModule()
+            detailPlayListVC.presenter.setName(name)
+            viewController?.navigationController?.pushViewController(detailPlayListVC, animated: true)
         case .addPlayList:
             let addPlayListVC = AddPlayListRouter.createModule()
             viewController?.navigationController?.pushViewController(addPlayListVC, animated: true)

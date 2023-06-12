@@ -92,7 +92,11 @@ extension HomePresenter: HomePresenterProtocol {
     
 }
 
-extension HomePresenter: HomeInteractorOutputProtocol {    
+extension HomePresenter: HomeInteractorOutputProtocol {
+    
+    func goNoInternet() {
+        router.navigate(.noInternetScreen)
+    }
     
     func getMusics(_ musics: MusicResult) {
         guard let musicResults = musics.results,

@@ -45,6 +45,19 @@ final class DetailSongPresenter {
         return addWord
     }
     
+    private func setSavedMusicFromPlayList(_ playListName: String) -> [String: Any] {
+        let addWord: [String: Any] = [
+            "artistName": music?.artistName ?? "",
+            "artworkUrl100": music?.artworkUrl100 ?? "",
+            "playListName": playListName,
+            "previewUrl": music?.previewURL ?? "",
+            "primaryGenreName": music?.primaryGenreName ?? "",
+            "trackId": String(music?.trackID ?? 0),
+            "trackName": music?.trackName ?? "",
+        ]
+        return addWord
+    }
+    
 }
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {

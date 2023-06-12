@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 public enum NetworkError: Error {
+    
     case emptyDataError
     case operationFailed
     case connectionError

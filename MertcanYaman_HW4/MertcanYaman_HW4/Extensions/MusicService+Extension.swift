@@ -59,7 +59,6 @@ extension MusicService {
                 completion(.failure(.invalidChar))
                 return
             }
-            print(url)
             self.fetchMusic(url, completion: completion)
         }else {
             completion(.failure(.connectionError))

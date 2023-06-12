@@ -44,11 +44,6 @@ extension SplashRouter: SplashRouterProtocol {
                 playList: PlayListRouter.createModule()
             )
             let tabBarController = TabBarRouter.createModule(usingSubModules: subModules)
-            
-//            let homeVC = HomeRouter.createModule()
-//            let navigationController = UINavigationController(rootViewController: homeVC)
-//            window.rootViewController = navigationController
-            //let playList = PlayListRouter.createModule()
             let navigationController = UINavigationController(rootViewController: tabBarController)
             window.rootViewController = navigationController
         case .noInternetScreen:

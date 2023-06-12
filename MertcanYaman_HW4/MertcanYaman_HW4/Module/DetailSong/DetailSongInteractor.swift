@@ -11,7 +11,6 @@ import CoreData
 
 protocol DetailSongInteractorProtocol {
     func savedMusic(_ entityName: String, _ addObj: [String:Any])
-    func fetchPlayList()
     func checkIsLiked(_ addObj: [String:Any])
 }
 
@@ -43,19 +42,7 @@ extension DetailSongInteractor: DetailSongInteractorProtocol {
         }
     }
     
-    func fetchPlayList() {
-        guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
-        MyCoreDataService.shared.fetchPlayList(persistentContainer) { [weak self] response in
-            guard let self else { return }
-            switch response {
-                
-            case .success(let data):
-                print(data.count)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+    
     
     func savedMusic(_ entityName: String, _ addObj: [String:Any]) {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }

@@ -15,6 +15,7 @@ protocol HomeInteractorProtocol: AnyObject {
 protocol HomeInteractorOutputProtocol: AnyObject {
     func getMusics(_ musics: MusicResult)
     func showError(_ error: Error)
+    func goNoInternet()
 }
 
 final class HomeInteractor {
@@ -36,7 +37,11 @@ extension HomeInteractor: HomeInteractorProtocol {
             case .success(let data):
                 self.output?.getMusics(data)                
             case .failure(let error):
-                self.output?.showError(error)
+                if error.message == NetworkError.connectionError.message {
+                    self.output?.goNoInternet()
+                }else {
+                    print(error)
+                }
             }
         }
     }
