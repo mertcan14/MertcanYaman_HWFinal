@@ -71,15 +71,15 @@ final class DetailSongPresenter {
 extension DetailSongPresenter: DetailSongPresenterProtocol {
     
     func nextSong() {
-        guard let song = PlaySong.shared.getNextSong() else { return }
+        guard let song = PlaySong.shared.getNextSong(self.indexOfMusics) else { return }
         self.music = song
         self.indexOfMusics += 1
         guard let trackId = music?.trackID else { return }
         interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
         viewWillAppear()
-        isPlaySong = false
-        PlaySong.shared.stopSong()
+        isPlaySong = true
         PlaySong.shared.startSong(self.indexOfMusics)
+        view.changePlayIcon()
         self.view.hideLoading()
     }
     

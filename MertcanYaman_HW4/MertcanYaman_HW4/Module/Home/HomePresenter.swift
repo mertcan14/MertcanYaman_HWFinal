@@ -18,6 +18,10 @@ protocol HomePresenterProtocol {
     func viewWillAppear()
     func goDetailSong(_ index: Int)
     func removeSongs()
+    func playMusic()
+    func setPlayedMusicIndex(_ index: Int)
+    func nextSong()
+    func previousSong()
 }
 
 final class HomePresenter {
@@ -32,6 +36,8 @@ final class HomePresenter {
         }
     }
     var musicCount: Int = 0
+    var isPlaySong: Bool = true
+    var playedMusicIndex: Int = 0
     
     init(
         _ view: HomeViewControllerProtocol,
@@ -50,7 +56,27 @@ final class HomePresenter {
 
 extension HomePresenter: HomePresenterProtocol {
     
-
+    func previousSong() {
+        PlaySong.shared.goPreviousSong(self.playedMusicIndex)
+    }
+    
+    func nextSong() {
+        PlaySong.shared.goNextSong(self.playedMusicIndex)
+    }
+    
+    func setPlayedMusicIndex(_ index: Int) {
+        self.playedMusicIndex = index
+    }
+    
+    func playMusic() {
+        if !isPlaySong {
+            PlaySong.shared.startSong(self.playedMusicIndex)
+            isPlaySong = true
+        }else {
+            PlaySong.shared.stopSong()
+            isPlaySong = false
+        }
+    }
     
     func removeSongs() {
         self.musicResult = []
@@ -71,6 +97,8 @@ extension HomePresenter: HomePresenterProtocol {
     
     func viewWillAppear() {
         self.view.setWillAppear()
+        self.view.hiddenPlayedSong(!(PlaySong.shared.isPlay()))
+        view.reloadDataNotification()
     }
     
     func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int)? {

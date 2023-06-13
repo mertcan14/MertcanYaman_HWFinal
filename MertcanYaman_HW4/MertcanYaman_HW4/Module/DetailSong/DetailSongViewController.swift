@@ -13,6 +13,7 @@ protocol DetailSongViewControllerProtocol: AnyObject, BaseViewControllerProtocol
     func setupData(_ imageUrl: URL, _ title: String, _ artist: String)
     func changeHeartIcon(_ success: Bool)
     func checkDeleteLike()
+    func changePlayIcon()
 }
 
 final class DetailSongViewController: BaseViewController {
@@ -139,6 +140,10 @@ final class DetailSongViewController: BaseViewController {
 }
 
 extension DetailSongViewController: DetailSongViewControllerProtocol {
+    
+    func changePlayIcon() {
+        playCircleBtn.selectNewIcon()
+    }
     
     func checkDeleteLike() {
         let alert = UIAlertController(title: "Delete Song", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)

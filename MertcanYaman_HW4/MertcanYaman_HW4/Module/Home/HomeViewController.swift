@@ -12,6 +12,8 @@ protocol HomeViewControllerProtocol: AnyObject, BaseViewControllerProtocol {
     func setupField()
     func setupTableView()
     func setWillAppear()
+    func hiddenPlayedSong(_ bool: Bool)
+    func reloadDataNotification()
 }
 
 final class HomeViewController: BaseViewController {
@@ -19,6 +21,12 @@ final class HomeViewController: BaseViewController {
     var timer: Timer?
     var presenter: HomePresenterProtocol!
     
+    @IBOutlet weak var nextSongBtn: CircleButton!
+    @IBOutlet weak var playSongBtn: CircleButton!
+    @IBOutlet weak var previousSongBtn: CircleButton!
+    @IBOutlet weak var playedSongTitle: UILabel!
+    @IBOutlet weak var playedSongImage: UIImageView!
+    @IBOutlet weak var playedSong: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBarTxt: UISearchBar!
     
@@ -27,14 +35,84 @@ final class HomeViewController: BaseViewController {
         self.presenter.viewDidLoad()
         
         searchBarTxt.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNotification), name: Notification.Name("PlayedSong"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNotification), name: Notification.Name("StopSong"), object: nil)
+        
+        let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
+        playSongBtn.addGestureRecognizer(playSongTap)
+        playSongTap.circleBtn = playSongBtn
+        playSongTap.closure = {
+            self.presenter.playMusic()
+        }
+        
+        let nextSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
+        nextSongBtn.addGestureRecognizer(nextSongTap)
+        nextSongTap.circleBtn = nextSongBtn
+        nextSongTap.closure = {
+            self.presenter.nextSong()
+        }
+        
+        let previousSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
+        previousSongBtn.addGestureRecognizer(previousSongTap)
+        previousSongTap.circleBtn = previousSongBtn
+        previousSongTap.closure = {
+            self.presenter.previousSong()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.presenter.viewWillAppear()
+        
+        nextSongBtn.layer.cornerRadius = nextSongBtn.bounds.width / 2
+        nextSongBtn.layer.masksToBounds = true
+        
+        playSongBtn.layer.cornerRadius = playSongBtn.bounds.width / 2
+        playSongBtn.layer.masksToBounds = true
+        
+        previousSongBtn.layer.cornerRadius = previousSongBtn.bounds.width / 2
+        previousSongBtn.layer.masksToBounds = true
+        
+        
+        playSongBtn.setup("play", "pause", UIColor(hexString: "#141921"), .white)
+        nextSongBtn.setup("next", nil, UIColor(hexString: "#141921"), nil)
+        previousSongBtn.setup("previous", nil, UIColor(hexString: "#141921"), nil)
+    }
+    
+    func setPlayedSongView() {
+        guard let music = PlaySong.shared.getMusicForTableCellByIndex(),
+              let url = URL(string: music.0) else { return }
+        DispatchQueue.main.async {
+            self.playedSong.isHidden = false
+            self.playedSongImage.sd_setImage(with: url)
+            self.playedSongTitle.text = music.1
+        }
+    }
+    
+    @objc func changeCircleBtn(sender : MyTapGesture) {
+        sender.circleBtn.changeImageAndColor()
+        guard let closure =  sender.closure else { return }
+        closure()
+    }
+    
+    @objc func reloadDataNotification() {
+        if PlaySong.shared.isPlay() {
+            playSongBtn.selectNewIcon()
+        }else {
+            playSongBtn.selectDefaultIcon()
+        }
+        presenter.setPlayedMusicIndex(PlaySong.shared.getIndex())
+        tableView.reloadData()
+        setPlayedSongView()
     }
 }
 
 extension HomeViewController: HomeViewControllerProtocol {
+    
+    func hiddenPlayedSong(_ bool: Bool) {
+        DispatchQueue.main.async {
+            self.playedSong.isHidden = bool
+        }
+    }
     
     func reloadData() {
         DispatchQueue.main.async {

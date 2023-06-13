@@ -68,27 +68,21 @@ class CircleButton: UIView {
         }
     }
     
-//    func changeImageAndColor(_ check: Bool) {
-//        if let newImage {
-//            DispatchQueue.main.async {
-//                if check {
-//                    self.btnImageView.image = newImage
-//                }else {
-//                    self.btnImageView.image = self.defaultImage
-//                }
-//            }
-//        }
-//        
-//        if let newColor {
-//            DispatchQueue.main.async {
-//                if check {
-//                    self.outerView.backgroundColor = newColor
-//                }else {
-//                    self.outerView.backgroundColor = self.defaultColor
-//                }
-//            }
-//        }
-//    }
+    func selectNewIcon() {
+        if let newColor {
+            DispatchQueue.main.async {
+                self.outerView.backgroundColor = newColor
+                self.btnImageView.image = self.newImage
+            }
+        }
+    }
+    
+    func selectDefaultIcon() {
+        DispatchQueue.main.async {
+            self.outerView.backgroundColor = self.defaultColor
+            self.btnImageView.image = self.defaultImage
+        }
+    }
     
     private func configureView() {
         guard let nibView = loadViewFromNib() else {return }

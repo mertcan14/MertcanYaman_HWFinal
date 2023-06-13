@@ -23,8 +23,15 @@ class MusicTableViewCell: UITableViewCell {
         songTitleLabel.text = title
         contentTitleLabel.text = content
         self.index = index
+        if index == PlaySong.shared.getIndex() && PlaySong.shared.isPlay() {
+            isStartedMusic = true
+            self.playButton.imageView?.image = UIImage(named: "pausewhite")
+        }else {
+            isStartedMusic = false
+            self.playButton.imageView?.image = UIImage(named: "play")
+        }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.otherSongPlay(notification:)), name: Notification.Name("otherSongPlay"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.otherSongPlay(notification:)), name: Notification.Name("PlayedSong"), object: nil)
     }
     
     @IBAction func playBtnClicked(_ sender: Any) {
@@ -32,13 +39,13 @@ class MusicTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 self.playButton.imageView?.image = UIImage(named: "pausewhite")
             }
-            NotificationCenter.default.post(name: Notification.Name("otherSongPlay"), object: nil, userInfo: ["index":index])
             PlaySong.shared.startSong(self.index)
             self.isStartedMusic = true
         }else {
             DispatchQueue.main.async {
                 self.playButton.imageView?.image = UIImage(named: "play")
             }
+            PlaySong.shared.stopSong()
             self.isStartedMusic = false
         }
     }

@@ -46,8 +46,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "getMusics(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "showError(_:)"
             landmarkType = "7">
             <Locations>
@@ -110,8 +110,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "performSearch()"
             landmarkType = "7">
             <Locations>
@@ -222,8 +222,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "fetchData(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +350,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/DetailSongViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "DetailSongViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/DetailSongViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "changeCircleBtn(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -430,8 +430,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/PlayList/PlayListPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "playList"
             landmarkType = "24">
          </BreakpointContent>
@@ -446,8 +446,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/PlayList/PlayListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -558,8 +558,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/DetailSongViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "changeHeartIcon(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -594,102 +594,6 @@
             endingLineNumber = "133"
             landmarkName = "checkObject(_:entityName:checkAttribute:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AF303538-CF30-4588-8DA3-1160C2A47C1B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/View/CircleButton.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "CircleButton"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "AF303538-CF30-4588-8DA3-1160C2A47C1B - e5c0965b60db756c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MertcanYaman_HW4.CircleButton.changeImageAndColor(Swift.Bool) -&gt; ()"
-                  moduleName = "MertcanYaman_HW4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/Desktop/MertcanYaman_HW4/MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/View/CircleButton.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  uuid = "AF303538-CF30-4588-8DA3-1160C2A47C1B - 5e25aba824297e75"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in MertcanYaman_HW4.CircleButton.changeImageAndColor(Swift.Bool) -&gt; ()"
-                  moduleName = "MertcanYaman_HW4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/Desktop/MertcanYaman_HW4/MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/View/CircleButton.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FEE9A4AB-64A6-4B18-8B4C-15234D841FE7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/View/CircleButton.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "CircleButton"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "FEE9A4AB-64A6-4B18-8B4C-15234D841FE7 - e5c0965b60db7513"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MertcanYaman_HW4.CircleButton.changeImageAndColor(Swift.Bool) -&gt; ()"
-                  moduleName = "MertcanYaman_HW4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/Desktop/MertcanYaman_HW4/MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/View/CircleButton.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "180">
-               </Location>
-               <Location
-                  uuid = "FEE9A4AB-64A6-4B18-8B4C-15234D841FE7 - e5c0965b60db7513"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MertcanYaman_HW4.CircleButton.changeImageAndColor(Swift.Bool) -&gt; ()"
-                  moduleName = "MertcanYaman_HW4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/Desktop/MertcanYaman_HW4/MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/View/CircleButton.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "232">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -910,8 +814,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "removeSongs()"
             landmarkType = "7">
          </BreakpointContent>
@@ -926,8 +830,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "removeSongs()"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,8 +846,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,8 +862,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -974,8 +878,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "setMusicUrlAndPushPlaySong()"
             landmarkType = "7">
          </BreakpointContent>
@@ -990,10 +894,10 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "PlaySong"
-            landmarkType = "3">
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "setUrls(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1006,8 +910,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/DetailSong/DetailSongViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -1054,42 +958,10 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "startSong(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3ED77E01-19D8-42DE-B65D-32D697249A9A - edd6108105b2a4bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MertcanYaman_HW4.PlaySong.startSong(Swift.Int) -&gt; ()"
-                  moduleName = "MertcanYaman_HW4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/Desktop/MertcanYaman_HW4/MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "324">
-               </Location>
-               <Location
-                  uuid = "3ED77E01-19D8-42DE-B65D-32D697249A9A - edd6108105b2a4bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MertcanYaman_HW4.PlaySong.startSong(Swift.Int) -&gt; ()"
-                  moduleName = "MertcanYaman_HW4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mertcanyaman/Desktop/MertcanYaman_HW4/MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "660">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1111,7 +983,119 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A9189248-4822-4AF7-B1B1-DCEC2021D4D9"
+            uuid = "7BD39BD5-653F-4609-84F7-EBB06974D64C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "getNextSong(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "942BF483-B37D-4B76-ACAD-ED317C3F4734"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9345136A-81B3-4F78-B899-B04B25A81C3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "startSong(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "203A1CBA-3CE5-4505-AF78-AC6162EEAE5D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "goPreviousSong(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33F30AB6-1A3E-4B4D-86CC-06F2439EA8AB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Helper/PlaySong.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "playerDidFinishPlaying()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DCACE27-EDD3-4DDE-BB2F-5F9CB5491C35"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomePresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "setPlayedMusicIndex(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6243092F-6159-47D7-95B8-819CC6454999"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/View/MusicTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "playBtnClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10FC943F-620D-4B11-AD29-D5872212BD11"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1121,6 +1105,38 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "setup(_:_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "528E6D18-2877-47F2-9B81-40BF2F544A21"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "reloadDataNotification()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8CE4353-2CC7-440B-805F-CCE0BC92ADFD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "reloadDataNotification()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
