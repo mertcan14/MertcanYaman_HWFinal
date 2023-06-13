@@ -66,6 +66,7 @@
 		E5C1A3ED2A36446E0068D38A /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */; };
 		E5C239C52A33DC710033A0FB /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E5C239C42A33DC710033A0FB /* MyCoreData */; };
 		E5C239C72A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */; };
+		E5D123BC2A386B3C00D87B78 /* PlaySong.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D123BB2A386B3C00D87B78 /* PlaySong.swift */; };
 		E5D332DF2A313937005DA42E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332DD2A313937005DA42E /* HomeViewController.swift */; };
 		E5D332E02A313937005DA42E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D332DE2A313937005DA42E /* HomeViewController.xib */; };
 		E5D332E22A313ECB005DA42E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */; };
@@ -159,6 +160,7 @@
 		E5C1A3EA2A3643910068D38A /* SongTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTabBarController.swift; sourceTree = "<group>"; };
 		E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
+		E5D123BB2A386B3C00D87B78 /* PlaySong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySong.swift; sourceTree = "<group>"; };
 		E5D332DD2A313937005DA42E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5D332DE2A313937005DA42E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E5D332E12A313ECB005DA42E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				E59E1A522A307DDF002FBFA5 /* LoadingShowable.swift */,
 				E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */,
+				E5D123BB2A386B3C00D87B78 /* PlaySong.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				E5D43CF62A373AE6009B3941 /* DetailPlayListViewController.swift in Sources */,
 				E59E1A642A309181002FBFA5 /* NoInternetViewController.swift in Sources */,
 				E53F19922A2F509C00DCD915 /* ArtistResult.swift in Sources */,
+				E5D123BC2A386B3C00D87B78 /* PlaySong.swift in Sources */,
 				E59FAB3A2A35384500F328D7 /* AddPlayListPresenter.swift in Sources */,
 				E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */,
 				E59E1A6B2A309663002FBFA5 /* NoInternetRouter.swift in Sources */,

@@ -45,10 +45,17 @@ final class DetailSongViewController: BaseViewController {
         let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playCircleBtn.addGestureRecognizer(playSongTap)
         playSongTap.circleBtn = playCircleBtn
+        playSongTap.closure = {
+            self.presenter.playMusic()
+        }
         
         let nextSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         nextCircleBtn.addGestureRecognizer(nextSongTap)
         nextSongTap.circleBtn = nextCircleBtn
+        nextSongTap.closure = {
+            self.showLoading()
+            self.presenter.nextSong()
+        }
         
         let playListTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playListCircleBtn.addGestureRecognizer(playListTap)

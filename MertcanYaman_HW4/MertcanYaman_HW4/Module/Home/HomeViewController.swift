@@ -61,7 +61,6 @@ extension HomeViewController: HomeViewControllerProtocol {
         }
         
     }
-    
 }
 
 extension HomeViewController: UITextFieldDelegate {
@@ -98,7 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
         guard let music = presenter.getMusicForTableCellByIndex(indexPath.row),
               let url = URL(string: music.0) else { return cell }
-        cell.setup(url, music.1, music.2)
+        cell.setup(url, music.1, music.2, music.3)
         return cell
     }
     

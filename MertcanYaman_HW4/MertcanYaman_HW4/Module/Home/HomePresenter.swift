@@ -13,7 +13,7 @@ protocol HomePresenterProtocol {
     
     func fetchData(_ term: String, _ searchedType: SearchedType)
     func getMusicByIndex(_ index: Int) -> Music?
-    func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String)?
+    func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int)?
     func viewDidLoad()
     func viewWillAppear()
     func goDetailSong(_ index: Int)
@@ -31,7 +31,6 @@ final class HomePresenter {
             self.view.reloadData()
         }
     }
-
     var musicCount: Int = 0
     
     init(
@@ -43,9 +42,15 @@ final class HomePresenter {
         self.router = router
         self.interactor = interactor
     }
+    
+    private func setMusicUrlAndPushPlaySong() {
+        PlaySong.shared.setUrls(self.musicResult)
+    }
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    
+
     
     func removeSongs() {
         self.musicResult = []
@@ -54,7 +59,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func goDetailSong(_ index: Int) {
         guard let song = self.musicResult[safe: index] else { return }
-        self.router.navigate(.detailSong(song))
+        self.router.navigate(.detailSong(song, index))
     }
     
     func viewDidLoad() {
@@ -68,12 +73,12 @@ extension HomePresenter: HomePresenterProtocol {
         self.view.setWillAppear()
     }
     
-    func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String)? {
+    func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int)? {
         guard let music = musicResult[safe: index],
               let imageUrl = music.artworkUrl100,
               let title = music.trackName,
               let content = music.artistName else { return nil }
-        return (imageUrl, title, content)
+        return (imageUrl, title, content, index)
     }
     
     var numberOfMusics: Int {
@@ -104,6 +109,7 @@ extension HomePresenter: HomeInteractorOutputProtocol {
               let count = musics.resultCount else { return }
         self.musicResult = musicResults
         self.musicCount = count
+        setMusicUrlAndPushPlaySong()
     }
     
     func showError(_ error: Error) {

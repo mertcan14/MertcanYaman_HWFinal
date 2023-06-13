@@ -15,6 +15,9 @@ protocol DetailSongPresenterProtocol {
     func getMusic() -> Music?
     func likeBtnClicked()
     func deleteLikeSong()
+    func setIndexOfMusic(_ index: Int)
+    func playMusic()
+    func nextSong()
 }
 
 final class DetailSongPresenter {
@@ -24,6 +27,8 @@ final class DetailSongPresenter {
     let interactor: DetailSongInteractorProtocol
     var music: Music?
     var isLike: Bool = false
+    var indexOfMusics: Int = 0
+    var isPlaySong: Bool = false
     
     init(
         _ view: DetailSongViewControllerProtocol,
@@ -64,6 +69,34 @@ final class DetailSongPresenter {
 }
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {
+    
+    func nextSong() {
+        guard let song = PlaySong.shared.getNextSong() else { return }
+        self.music = song
+        self.indexOfMusics += 1
+        guard let trackId = music?.trackID else { return }
+        interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
+        viewWillAppear()
+        isPlaySong = false
+        PlaySong.shared.stopSong()
+        PlaySong.shared.startSong(self.indexOfMusics)
+        self.view.hideLoading()
+    }
+    
+    
+    func playMusic() {
+        if !isPlaySong {
+            PlaySong.shared.startSong(self.indexOfMusics)
+            isPlaySong = true
+        }else {
+            PlaySong.shared.stopSong()
+            isPlaySong = false
+        }
+    }
+    
+    func setIndexOfMusic(_ index: Int) {
+        self.indexOfMusics = index
+    }
     
     func deleteLikeSong() {
         let removeObj: [String : Any] = [

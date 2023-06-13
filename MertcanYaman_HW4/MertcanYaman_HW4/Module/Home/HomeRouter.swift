@@ -10,7 +10,7 @@ import UIKit
 
 enum HomeRoutes {
     case noInternetScreen
-    case detailSong(_ song: Music)
+    case detailSong(_ song: Music, _ index: Int)
 }
 
 protocol HomeRouterProtocol: AnyObject {
@@ -42,9 +42,10 @@ extension HomeRouter: HomeRouterProtocol {
             let noInternetVC = NoInternetRouter.createModule()
             window.rootViewController = noInternetVC
             
-        case .detailSong(let music):
+        case .detailSong(let music, let index):
             let detailSongVC = DetailSongRouter.createModule()
             detailSongVC.presenter.setMusic(music)
+            detailSongVC.presenter.setIndexOfMusic(index)
             viewController?.navigationController?.pushViewController(detailSongVC, animated: true)
         }
         
