@@ -20,6 +20,7 @@ protocol DetailPlayListPresenterProtocol {
     func viewDidLoad()
     func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)?
     func deleteSong(_ index: Int)
+    func setMusicUrlAndPushPlaySong()
 }
 
 final class DetailPlayListPresenter {
@@ -59,6 +60,24 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
         ]
         savedMusics.remove(at: index)
         interactor.deleteSavedMusic(removeObj)
+    }
+    
+    func setMusicUrlAndPushPlaySong() {
+        var musics: [Music] = []
+        self.savedMusics.forEach { savedMusic in
+            musics.append(
+                Music(
+                    trackID: Int(savedMusic.trackId ?? "-1"),
+                    artistName: savedMusic.artistName,
+                    trackName: savedMusic.trackName,
+                    previewURL: savedMusic.previewUrl,
+                    artworkUrl100: savedMusic.artworkUrl100,
+                    primaryGenreName: savedMusic.primaryGenreName
+                )
+            )
+        }
+        
+        PlaySong.shared.setUrls(musics)
     }
     
     var numberOfSavedMusics: Int {

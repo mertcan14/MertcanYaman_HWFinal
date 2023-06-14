@@ -49,7 +49,12 @@ final class PlaySong {
     }
     
     func setUrls(_ urls: [Music]) {
+        
         self.songsUrl = urls
+        if urls.count == 1 {
+            self.songsUrl += urls
+        }
+        
     }
     
     func getNextSong(_ index: Int) -> Music?{

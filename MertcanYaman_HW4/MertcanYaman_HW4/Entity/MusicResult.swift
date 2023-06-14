@@ -28,7 +28,7 @@ public struct Music: Decodable {
     let artworkUrl30, artworkUrl60, artworkUrl100: String?
     let collectionPrice, trackPrice: Double?
     let releaseDate: Date?
-    let collectionExplicitness, trackExplicitness: String
+    let collectionExplicitness, trackExplicitness: String?
     let discCount, discNumber, trackCount, trackNumber: Int?
     let trackTimeMillis: Int?
     let country: String?
@@ -54,32 +54,44 @@ public struct Music: Decodable {
         case trackHDRentalPrice = "trackHdRentalPrice"
         case contentAdvisoryRating, longDescription
     }
+    
+    init(trackID: Int?, artistName: String?, trackName: String?, previewURL: String?, artworkUrl100: String?, primaryGenreName: String?) {
+        self.wrapperType = nil
+        self.kind = nil
+        self.artistID = nil
+        self.collectionID = nil
+        self.trackID = trackID
+        self.artistName = artistName
+        self.collectionName = nil
+        self.trackName = trackName
+        self.collectionCensoredName = nil
+        self.trackCensoredName = nil
+        self.artistViewURL = nil
+        self.collectionViewURL = nil
+        self.trackViewURL = nil
+        self.previewURL = previewURL
+        self.artworkUrl30 = nil
+        self.artworkUrl60 = nil
+        self.artworkUrl100 = artworkUrl100
+        self.collectionPrice = nil
+        self.trackPrice = nil
+        self.releaseDate = nil
+        self.collectionExplicitness = nil
+        self.trackExplicitness = nil
+        self.discCount = nil
+        self.discNumber = nil
+        self.trackCount = nil
+        self.trackNumber = nil
+        self.trackTimeMillis = nil
+        self.country = nil
+        self.currency = nil
+        self.primaryGenreName = primaryGenreName
+        self.isStreamable = nil
+        self.trackRentalPrice = nil
+        self.collectionHDPrice = nil
+        self.trackHDPrice = nil
+        self.trackHDRentalPrice = nil
+        self.contentAdvisoryRating = nil
+        self.longDescription = nil
+    }
 }
-
-//enum Explicitness: String, Decodable {
-//    case cleaned = "cleaned"
-//    case explicit = "explicit"
-//    case notExplicit = "notExplicit"
-//}
-//
-//enum Kind: String, Decodable {
-//    case book = "book"
-//    case album = "album"
-//    case coachedAudio = "coached-audio"
-//    case featureMovie = "feature-movie"
-//    case interactiveBooklet = "interactive-booklet"
-//    case musicVideo = "music-video"
-//    case pdfPodcast = "pdf podcast"
-//    case podcastEpisode = "podcast-episode"
-//    case softwarePackage = "software-package"
-//    case song = "song"
-//    case tvEpisode = "tv-episode"
-//    case artist = "artist"
-//
-//}
-//
-//enum WrapperType: String, Decodable {
-//    case track = "track"
-//    case collection = "collection"
-//    case artist = "artist"
-//}

@@ -31,6 +31,7 @@ final class DetailPlayListViewController: BaseViewController {
         playListTableView.dataSource = self
         playListTableView.register(UINib(nibName: "MusicTableViewCell", bundle: nil), forCellReuseIdentifier: "MusicTableViewCell")
         presenter.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(otherMusicListStarted), name: Notification.Name("OtherMusicListStarted"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +40,10 @@ final class DetailPlayListViewController: BaseViewController {
     
     @objc func backPage() {
         presenter.goOtherPage(.goPreviousPage)
+    }
+    
+    @objc func otherMusicListStarted() {
+        presenter.setMusicUrlAndPushPlaySong()
     }
 }
 

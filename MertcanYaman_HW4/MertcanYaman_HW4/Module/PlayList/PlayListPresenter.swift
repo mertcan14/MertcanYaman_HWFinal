@@ -84,7 +84,7 @@ extension PlayListPresenter: PlayListPresenterProtocol {
     }
     
     func nextSong() {
-        PlaySong.shared.goNextSong(self.playedMusicIndex)
+        PlaySong.shared.goNextSong(PlaySong.shared.getIndex())
     }
     
     func setPlayedMusicIndex(_ index: Int) {
