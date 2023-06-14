@@ -73,13 +73,12 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
     func nextSong() {
         guard let song = PlaySong.shared.getNextSong(self.indexOfMusics) else { return }
         self.music = song
-        self.indexOfMusics += 1
+        self.indexOfMusics += PlaySong.shared.getIndex()
         guard let trackId = music?.trackID else { return }
         interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
         viewWillAppear()
         isPlaySong = true
         PlaySong.shared.startSong(self.indexOfMusics)
-        view.changePlayIcon()
         self.view.hideLoading()
     }
     
@@ -131,6 +130,13 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
         imageUrlParse[imageUrlParse.count - 1] = "500x500bb.jpg"
         guard let url = URL(string: imageUrlParse.joined(separator: "/")) else { return }
         self.view.setupData(url, songName, artistName)
+        self.view.setCircleButton()
+        if indexOfMusics == PlaySong.shared.getIndex() && PlaySong.shared.isPlay() {
+            view.changePlayButton(true)
+        }else {
+            view.changePlayButton(false)
+        }
+        
     }
     
     func viewDidAppear() {

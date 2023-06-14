@@ -84,6 +84,14 @@ final class PlaySong {
         self.startSong(self.index)
     }
     
+    func checkPlayedEqualIsThisSong(_ trackId: Int) -> Bool {
+        guard let playedTrackId = self.songsUrl[safe: self.index]?.trackID else { return false }
+        if playedSong {
+            return playedTrackId == trackId
+        }
+        return false
+    }
+    
     func isPlay() -> Bool{
         playedSong
     }
@@ -92,7 +100,11 @@ final class PlaySong {
         index
     }
     
+    func isEmpty() -> Bool {
+        self.songsUrl.isEmpty
+    }
+    
     @objc func playerDidFinishPlaying() {
-        stopSong()
+        goNextSong(self.index)
     }
 }

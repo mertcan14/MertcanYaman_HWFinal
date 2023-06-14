@@ -18,7 +18,7 @@ protocol DetailPlayListPresenterProtocol {
     func viewWillAppear()
     func setName(_ name: String)
     func viewDidLoad()
-    func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int)?
+    func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)?
     func deleteSong(_ index: Int)
 }
 
@@ -82,12 +82,13 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
         self.router.navigate(routes)
     }
     
-    func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int)? {
+    func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)? {
         guard let music = savedMusics[safe: index],
               let imageUrl = music.artworkUrl100,
               let title = music.trackName,
-              let content = music.artistName else { return nil }
-        return (imageUrl, title, content, index)
+              let content = music.artistName,
+              let trackId = Int(music.trackId ?? "-1") else { return nil }
+        return (imageUrl, title, content, index, trackId)
     }
     
 }

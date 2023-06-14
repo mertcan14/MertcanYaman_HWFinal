@@ -37,6 +37,7 @@ final class HomeViewController: BaseViewController {
         searchBarTxt.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNotification), name: Notification.Name("PlayedSong"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadDataNotification), name: Notification.Name("StopSong"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(otherMusicListStarted), name: Notification.Name("OtherMusicListStarted"), object: nil)
         
         let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playSongBtn.addGestureRecognizer(playSongTap)
@@ -103,6 +104,10 @@ final class HomeViewController: BaseViewController {
         presenter.setPlayedMusicIndex(PlaySong.shared.getIndex())
         tableView.reloadData()
         setPlayedSongView()
+    }
+
+    @objc func otherMusicListStarted() {
+        presenter.setMusicUrlAndPushPlaySong()
     }
 }
 
@@ -175,7 +180,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
         guard let music = presenter.getMusicForTableCellByIndex(indexPath.row),
               let url = URL(string: music.0) else { return cell }
-        cell.setup(url, music.1, music.2, music.3)
+        cell.setup(url, music.1, music.2, music.3, music.4)
         return cell
     }
     

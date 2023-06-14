@@ -13,7 +13,8 @@ protocol DetailSongViewControllerProtocol: AnyObject, BaseViewControllerProtocol
     func setupData(_ imageUrl: URL, _ title: String, _ artist: String)
     func changeHeartIcon(_ success: Bool)
     func checkDeleteLike()
-    func changePlayIcon()
+    func changePlayButton(_ isPlayed: Bool)
+    func setCircleButton()
 }
 
 final class DetailSongViewController: BaseViewController {
@@ -80,25 +81,6 @@ final class DetailSongViewController: BaseViewController {
         shadowView.layer.shadowRadius = 6
         shadowView.layer.shadowOpacity = 1
         
-        previousMusicBtn.layer.cornerRadius = previousMusicBtn.bounds.width / 2
-        previousMusicBtn.layer.masksToBounds = true
-        
-        playCircleBtn.layer.cornerRadius = playCircleBtn.bounds.width / 2
-        playCircleBtn.layer.masksToBounds = true
-        
-        playListCircleBtn.layer.cornerRadius = playListCircleBtn.bounds.width / 2
-        playListCircleBtn.layer.masksToBounds = true
-        
-        saveSongView.layer.cornerRadius = saveSongView.bounds.width / 2
-        saveSongView.layer.masksToBounds = true
-        
-        nextCircleBtn.layer.cornerRadius = nextCircleBtn.bounds.width / 2
-        nextCircleBtn.layer.masksToBounds = true
-        
-        previousMusicBtn.setup("previous", nil, UIColor(hexString: "#141921"), nil)
-        playCircleBtn.setup("play", "pause", UIColor(hexString: "#141921"), .white)
-        nextCircleBtn.setup("next", nil, UIColor(hexString: "#141921"), nil)
-        playListCircleBtn.setup("playlist", nil, UIColor(hexString: "#141921"), nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -141,8 +123,34 @@ final class DetailSongViewController: BaseViewController {
 
 extension DetailSongViewController: DetailSongViewControllerProtocol {
     
-    func changePlayIcon() {
-        playCircleBtn.selectNewIcon()
+    func changePlayButton(_ isPlayed: Bool) {
+        if isPlayed {
+            playCircleBtn.selectNewIcon()
+        }else {
+            playCircleBtn.selectDefaultIcon()
+        }
+    }
+    
+    func setCircleButton() {
+        previousMusicBtn.layer.cornerRadius = previousMusicBtn.bounds.width / 2
+        previousMusicBtn.layer.masksToBounds = true
+        
+        playCircleBtn.layer.cornerRadius = playCircleBtn.bounds.width / 2
+        playCircleBtn.layer.masksToBounds = true
+        
+        playListCircleBtn.layer.cornerRadius = playListCircleBtn.bounds.width / 2
+        playListCircleBtn.layer.masksToBounds = true
+        
+        saveSongView.layer.cornerRadius = saveSongView.bounds.width / 2
+        saveSongView.layer.masksToBounds = true
+        
+        nextCircleBtn.layer.cornerRadius = nextCircleBtn.bounds.width / 2
+        nextCircleBtn.layer.masksToBounds = true
+        
+        previousMusicBtn.setup("previous", nil, UIColor(hexString: "#141921"), nil)
+        playCircleBtn.setup("play", "pause", UIColor(hexString: "#141921"), .white)
+        nextCircleBtn.setup("next", nil, UIColor(hexString: "#141921"), nil)
+        playListCircleBtn.setup("playlist", nil, UIColor(hexString: "#141921"), nil)
     }
     
     func checkDeleteLike() {
