@@ -9,7 +9,7 @@ import Foundation
 import MusicAPI
 
 protocol HomeInteractorProtocol: AnyObject {
-    func fetchMusics(_ term: String, _ searchedType: SearchedType)
+    func fetchMusics(_ term: String)
 }
 
 protocol HomeInteractorOutputProtocol: AnyObject {
@@ -24,10 +24,10 @@ final class HomeInteractor {
 
 extension HomeInteractor: HomeInteractorProtocol {
     
-    func fetchMusics(_ term: String, _ searchedType: SearchedType) {
+    func fetchMusics(_ term: String) {
         MusicService.shared.getSearch(
             term: term,
-            searchedType: searchedType,
+            searchedType: .song,
             country: "tr",
             limit: nil)
         { [weak self] response in

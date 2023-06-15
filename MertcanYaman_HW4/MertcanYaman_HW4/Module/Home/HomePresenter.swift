@@ -11,7 +11,7 @@ protocol HomePresenterProtocol {
     
     var numberOfMusics: Int { get }
     
-    func fetchData(_ term: String, _ searchedType: SearchedType)
+    func fetchData(_ term: String)
     func getMusicByIndex(_ index: Int) -> Music?
     func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)?
     func viewDidLoad()
@@ -120,11 +120,8 @@ extension HomePresenter: HomePresenterProtocol {
        return musicResult[safe: index]
     }
     
-    func fetchData(
-        _ term: String,
-        _ type: SearchedType
-    ) {
-        interactor.fetchMusics(term, type)
+    func fetchData(_ term: String) {
+        interactor.fetchMusics(term)
     }
     
 }

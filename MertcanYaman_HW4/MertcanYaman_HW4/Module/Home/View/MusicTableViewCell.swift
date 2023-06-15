@@ -8,44 +8,55 @@
 import UIKit
 import SDWebImage
 
-class MusicTableViewCell: UITableViewCell {
+protocol MusicTableViewCellProtocol: AnyObject {
+    func setImage(_ image: URL)
+    func setTitle(_ text: String)
+    func setArtist(_ text: String)
+    func setButton(_ bool: Bool)
+}
+
+final class MusicTableViewCell: UITableViewCell {
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var songImageView: UIImageView!
     @IBOutlet weak var contentTitleLabel: UILabel!
     @IBOutlet weak var songTitleLabel: UILabel!
     
-    var isStartedMusic: Bool = false
-    var index: Int = 0
-    
-    func setup(_ image: URL?,_ title: String,_ content: String, _ index: Int, _ trackId: Int) {
-        songImageView.sd_setImage(with: image)
-        songTitleLabel.text = title
-        contentTitleLabel.text = content
-        self.index = index
-        if PlaySong.shared.checkPlayedEqualIsThisSong(trackId) {
-            isStartedMusic = true
-            self.playButton.imageView?.image = UIImage(named: "pausewhite")
-        }else {
-            isStartedMusic = false
-            self.playButton.imageView?.image = UIImage(named: "play")
+    var cellPresenter: MusicTableViewCellPresenterProtocol! {
+        didSet {
+            cellPresenter.load()
         }
     }
     
     @IBAction func playBtnClicked(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.Name("OtherMusicListStarted"), object: nil)
-        if !isStartedMusic {
+        cellPresenter.playSongTap()
+    }
+}
+
+extension MusicTableViewCell: MusicTableViewCellProtocol {
+    
+    func setButton(_ bool: Bool) {
+        if bool {
             DispatchQueue.main.async {
                 self.playButton.imageView?.image = UIImage(named: "pausewhite")
             }
-            PlaySong.shared.startSong(self.index)
-            self.isStartedMusic = true
         }else {
             DispatchQueue.main.async {
                 self.playButton.imageView?.image = UIImage(named: "play")
             }
-            PlaySong.shared.stopSong()
-            self.isStartedMusic = false
         }
     }
+    
+    func setImage(_ image: URL) {
+        songImageView.sd_setImage(with: image)
+    }
+    
+    func setTitle(_ text: String) {
+        songTitleLabel.text = text
+    }
+    
+    func setArtist(_ text: String) {
+        contentTitleLabel.text = text
+    }
+    
 }

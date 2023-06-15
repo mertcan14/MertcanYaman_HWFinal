@@ -62,6 +62,15 @@
 		E59FAB3E2A35385A00F328D7 /* AddPlayListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FAB3D2A35385A00F328D7 /* AddPlayListRouter.swift */; };
 		E5A0C2BB2A3323A700FFB853 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */; };
 		E5A0C2BD2A3323B300FFB853 /* CircleButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */; };
+		E5BF08B92A3B2406003F4A0C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E5BF08B82A3B2406003F4A0C /* SDWebImage */; };
+		E5BF08BB2A3B2BAD003F4A0C /* MockHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08BA2A3B2BAD003F4A0C /* MockHomeInteractor.swift */; };
+		E5BF08BD2A3B2C46003F4A0C /* MockHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08BC2A3B2C46003F4A0C /* MockHomeRouter.swift */; };
+		E5BF08BF2A3B2EBD003F4A0C /* MockHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08BE2A3B2EBD003F4A0C /* MockHomeViewController.swift */; };
+		E5BF08C12A3B4884003F4A0C /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08C02A3B4884003F4A0C /* HomePresenterTests.swift */; };
+		E5BF08C22A3B5491003F4A0C /* Songs.json in Resources */ = {isa = PBXBuildFile; fileRef = E5BF08B72A3B157C003F4A0C /* Songs.json */; };
+		E5BF08C42A3B5B8F003F4A0C /* MusicTableViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08C32A3B5B8F003F4A0C /* MusicTableViewCellPresenter.swift */; };
+		E5BF08C72A3B6940003F4A0C /* MockMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08C62A3B6940003F4A0C /* MockMusicTableViewCell.swift */; };
+		E5BF08C92A3B6A9B003F4A0C /* MusicTableViewCellPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF08C82A3B6A9B003F4A0C /* MusicTableViewCellPresenterTests.swift */; };
 		E5C1A3EB2A3643910068D38A /* SongTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1A3EA2A3643910068D38A /* SongTabBarController.swift */; };
 		E5C1A3ED2A36446E0068D38A /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */; };
 		E5C239C52A33DC710033A0FB /* MyCoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E5C239C42A33DC710033A0FB /* MyCoreData */; };
@@ -157,6 +166,14 @@
 		E59FAB3D2A35385A00F328D7 /* AddPlayListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayListRouter.swift; sourceTree = "<group>"; };
 		E5A0C2BA2A3323A700FFB853 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		E5A0C2BC2A3323B300FFB853 /* CircleButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircleButton.xib; sourceTree = "<group>"; };
+		E5BF08B72A3B157C003F4A0C /* Songs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Songs.json; sourceTree = "<group>"; };
+		E5BF08BA2A3B2BAD003F4A0C /* MockHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeInteractor.swift; sourceTree = "<group>"; };
+		E5BF08BC2A3B2C46003F4A0C /* MockHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeRouter.swift; sourceTree = "<group>"; };
+		E5BF08BE2A3B2EBD003F4A0C /* MockHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewController.swift; sourceTree = "<group>"; };
+		E5BF08C02A3B4884003F4A0C /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		E5BF08C32A3B5B8F003F4A0C /* MusicTableViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCellPresenter.swift; sourceTree = "<group>"; };
+		E5BF08C62A3B6940003F4A0C /* MockMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMusicTableViewCell.swift; sourceTree = "<group>"; };
+		E5BF08C82A3B6A9B003F4A0C /* MusicTableViewCellPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCellPresenterTests.swift; sourceTree = "<group>"; };
 		E5C1A3EA2A3643910068D38A /* SongTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTabBarController.swift; sourceTree = "<group>"; };
 		E5C1A3EC2A36446E0068D38A /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		E5C239C62A33DE790033A0FB /* CoreDataReturnPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataReturnPersistentContainer.swift; sourceTree = "<group>"; };
@@ -191,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BF08B92A3B2406003F4A0C /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +309,7 @@
 		E594B83B2A2F4D2800B7B87E /* MertcanYaman_HW4Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E5BF08B62A3B153F003F4A0C /* Home */,
 				E594B83C2A2F4D2800B7B87E /* MertcanYaman_HW4Tests.swift */,
 			);
 			path = MertcanYaman_HW4Tests;
@@ -326,6 +345,7 @@
 			children = (
 				E59B6E942A31C17900D9B922 /* MusicTableViewCell.swift */,
 				E59B6E952A31C17900D9B922 /* MusicTableViewCell.xib */,
+				E5BF08C32A3B5B8F003F4A0C /* MusicTableViewCellPresenter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +473,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E5BF08B62A3B153F003F4A0C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF08C52A3B68F1003F4A0C /* Mock */,
+				E5BF08C02A3B4884003F4A0C /* HomePresenterTests.swift */,
+				E5BF08C82A3B6A9B003F4A0C /* MusicTableViewCellPresenterTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E5BF08C52A3B68F1003F4A0C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E5BF08BA2A3B2BAD003F4A0C /* MockHomeInteractor.swift */,
+				E5BF08BC2A3B2C46003F4A0C /* MockHomeRouter.swift */,
+				E5BF08BE2A3B2EBD003F4A0C /* MockHomeViewController.swift */,
+				E5BF08C62A3B6940003F4A0C /* MockMusicTableViewCell.swift */,
+				E5BF08B72A3B157C003F4A0C /* Songs.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		E5C1A3E92A3643220068D38A /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +566,9 @@
 				E594B83A2A2F4D2800B7B87E /* PBXTargetDependency */,
 			);
 			name = MertcanYaman_HW4Tests;
+			packageProductDependencies = (
+				E5BF08B82A3B2406003F4A0C /* SDWebImage */,
+			);
 			productName = MertcanYaman_HW4Tests;
 			productReference = E594B8382A2F4D2800B7B87E /* MertcanYaman_HW4Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -618,6 +663,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BF08C22A3B5491003F4A0C /* Songs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +732,7 @@
 				E504C26D2A321D9300CAE72E /* Collection+Extension.swift in Sources */,
 				E59E1A742A30AE10002FBFA5 /* HomeRouter.swift in Sources */,
 				E59FAB372A35382500F328D7 /* AddPlayListViewController.swift in Sources */,
+				E5BF08C42A3B5B8F003F4A0C /* MusicTableViewCellPresenter.swift in Sources */,
 				E5D43D052A375228009B3941 /* AddPlayListPopUpInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,6 +742,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E594B83D2A2F4D2800B7B87E /* MertcanYaman_HW4Tests.swift in Sources */,
+				E5BF08BF2A3B2EBD003F4A0C /* MockHomeViewController.swift in Sources */,
+				E5BF08BD2A3B2C46003F4A0C /* MockHomeRouter.swift in Sources */,
+				E5BF08C92A3B6A9B003F4A0C /* MusicTableViewCellPresenterTests.swift in Sources */,
+				E5BF08C72A3B6940003F4A0C /* MockMusicTableViewCell.swift in Sources */,
+				E5BF08C12A3B4884003F4A0C /* HomePresenterTests.swift in Sources */,
+				E5BF08BB2A3B2BAD003F4A0C /* MockHomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1093,11 @@
 			productName = MusicAPI;
 		};
 		E59B6E9B2A31C3D600D9B922 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E59B6E9A2A31C3D600D9B922 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E5BF08B82A3B2406003F4A0C /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E59B6E9A2A31C3D600D9B922 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;

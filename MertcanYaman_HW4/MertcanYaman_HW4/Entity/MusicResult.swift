@@ -7,14 +7,12 @@
 
 import Foundation
 
-struct MusicResult: Decodable {
+public struct MusicResult: Decodable {
     let resultCount: Int?
     let results: [Music]?
 }
 
 public struct Music: Decodable {
-    let wrapperType: String?
-    let kind: String?
     let artistID, collectionID: Int?
     let trackID: Int?
     let artistName: String?
@@ -39,7 +37,6 @@ public struct Music: Decodable {
     let contentAdvisoryRating, longDescription: String?
     
     enum CodingKeys: String, CodingKey {
-        case wrapperType, kind
         case artistID = "artistId"
         case collectionID = "collectionId"
         case trackID = "trackId"
@@ -56,8 +53,6 @@ public struct Music: Decodable {
     }
     
     init(trackID: Int?, artistName: String?, trackName: String?, previewURL: String?, artworkUrl100: String?, primaryGenreName: String?) {
-        self.wrapperType = nil
-        self.kind = nil
         self.artistID = nil
         self.collectionID = nil
         self.trackID = trackID

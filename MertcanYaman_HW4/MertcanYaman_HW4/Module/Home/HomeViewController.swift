@@ -32,6 +32,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAccessiblityIdentifier()
         self.presenter.viewDidLoad()
         
         searchBarTxt.delegate = self
@@ -59,6 +60,7 @@ final class HomeViewController: BaseViewController {
         previousSongTap.closure = {
             self.presenter.previousSong()
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,7 +165,7 @@ extension HomeViewController: UITextFieldDelegate {
     @objc func performSearch() {
         guard let term = searchBarTxt.text else { return }
         self.showLoading()
-        self.presenter.fetchData(term, .song)
+        self.presenter.fetchData(term)
     }
 }
 
@@ -180,7 +182,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
         guard let music = presenter.getMusicForTableCellByIndex(indexPath.row),
               let url = URL(string: music.0) else { return cell }
-        cell.setup(url, music.1, music.2, music.3, music.4)
+        cell.cellPresenter = MusicTableViewCellPresenter(view: cell, music: (url, music.1, music.2, music.3, music.4))
         return cell
     }
     
@@ -202,3 +204,9 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
+extension HomeViewController {
+    func setAccessiblityIdentifier() {
+        searchBarTxt.searchTextField.accessibilityIdentifier = "searchTextField"
+        tableView.accessibilityIdentifier = "tableViewFromHome"
+    }
+}

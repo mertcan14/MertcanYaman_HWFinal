@@ -73,7 +73,7 @@ extension DetailPlayListViewController: UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
         guard let music = presenter.getSavedMusicForTableCellByIndex(indexPath.row),
               let url = URL(string: music.0) else { return cell }
-        cell.setup(url, music.1, music.2, music.3, music.4)
+        cell.cellPresenter = MusicTableViewCellPresenter(view: cell, music: (url, music.1, music.2, music.3, music.4))
         return cell
     }
     
