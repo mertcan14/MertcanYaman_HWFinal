@@ -54,4 +54,5 @@ This application is an application that uses iTunesAPI to take control of music.
   
 ![1](https://github.com/mertcan14/MertcanYaman_HWFinal/assets/61551987/2cc68823-04d3-4b93-b458-b8315cb2c863)
 ![2](https://github.com/mertcan14/MertcanYaman_HWFinal/assets/61551987/d8cfe75e-5391-4cc2-a8ea-6def2549a5ce)
+![3](https://github.com/mertcan14/MertcanYaman_HWFinal/assets/61551987/8aacc2be-72cc-4292-8189-38488ad7b850)
 
