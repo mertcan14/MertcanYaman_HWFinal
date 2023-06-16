@@ -50,6 +50,10 @@ This application is an application that uses iTunesAPI to take control of music.
 | `country` | `string` | Searched Term In Country |
 | `entity` | `string` | Song, Movie, Podcast etc. |
 
+## Video
+
+**Youtube: **
+
 ## Screenshot
   
 ![1](https://github.com/mertcan14/MertcanYaman_HWFinal/assets/61551987/2cc68823-04d3-4b93-b458-b8315cb2c863)
