@@ -54,7 +54,7 @@ extension HomePresenter: HomePresenterProtocol {
     
     func setMusicUrlAndPushPlaySong() {
         
-        PlaySong.shared.setUrls(self.musicResult)
+        PlaySong.shared.setMusics(self.musicResult)
         
     }
     

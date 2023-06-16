@@ -36,13 +36,13 @@ extension DetailPlayListInteractor: DetailPlayListInteractorProtocol {
         guard let persistentContainer = CoreDataReturnPersistentContainer.shared.persistentContainer else { return }
         MyCoreDataService.shared.deleteMusic(
             persistentContainer,
-            deleteObj)
-        { [weak self] response in
+            deleteObj
+        ) { [weak self] response in
             guard let self else { return }
             switch response {
                 
-            case .success(let data):
-                self.output?.checkDeleteMusic(data)
+            case .success(let success):
+                self.output?.checkDeleteMusic(success)
             case .failure(let error):
                 self.output?.showError(error.message ?? "Error")
             }

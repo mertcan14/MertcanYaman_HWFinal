@@ -42,10 +42,8 @@ extension DetailSongInteractor: DetailSongInteractorProtocol {
             guard let self else { return }
             switch response {
                 
-            case .success(let data):
-                if data {
-                    self.output?.showError("Error")
-                }
+            case .success(_):
+                break
             case .failure(let error):
                 self.output?.showError(error.message ?? "Error")
             }

@@ -151,6 +151,10 @@ extension DetailSongViewController: DetailSongViewControllerProtocol {
         let previousSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         previousMusicBtn.addGestureRecognizer(previousSongTap)
         previousSongTap.circleBtn = previousMusicBtn
+        previousSongTap.closure = {
+            self.showLoading()
+            self.presenter.previousSong()
+        }
         
     }
     

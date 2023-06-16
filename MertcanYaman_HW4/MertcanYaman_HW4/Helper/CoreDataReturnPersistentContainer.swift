@@ -5,10 +5,10 @@
 //  Created by mertcan YAMAN on 10.06.2023.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
+// MARK: - Return NSPersistentContainer For 
 final class CoreDataReturnPersistentContainer {
     
     static let shared = CoreDataReturnPersistentContainer()

@@ -12,12 +12,13 @@ final class PlaySong {
     
     static let shared = PlaySong()
     
-    // MARK: -> 
+    // MARK: - Variable Definitions
     private var songs: [Music] = []
     private var index: Int = -1
     private var player: AVPlayer?
     private var playedSong: Bool = false
     
+    // MARK: - AvPlayer play func
     func startSong(_ index: Int) {
         
         self.player?.pause()
@@ -40,6 +41,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Return information of playing music
     func getMusicForTableCellByIndex() -> (String, String)? {
         
         guard let music = self.songs[safe: index],
@@ -49,6 +51,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Stop Songs
     func stopSong() {
         
         self.player?.pause()
@@ -57,7 +60,8 @@ final class PlaySong {
         
     }
     
-    func setUrls(_ urls: [Music]) {
+    // MARK: - Set Songs
+    func setMusics(_ urls: [Music]) {
         
         self.songs = urls
         if urls.count == 1 {
@@ -66,6 +70,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Return Next Song
     func getNextSong(_ index: Int) -> Music?{
         
         self.index = index + 1
@@ -76,6 +81,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Play Next Song
     func goNextSong(_ index: Int) {
         
         self.index = index + 1
@@ -86,6 +92,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Return Previous Song
     func getPreviousSong(_ index: Int) -> Music?{
         
         self.index = index - 1
@@ -96,6 +103,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Play Previous Song
     func goPreviousSong(_ index: Int) {
         
         self.index = index - 1
@@ -106,6 +114,7 @@ final class PlaySong {
         
     }
     
+    // MARK: - Return check is the song playing the same as the song playing
     func checkPlayedEqualIsThisSong(_ trackId: Int) -> Bool {
         
         guard let playedTrackId = self.songs[safe: self.index]?.trackID else { return false }
@@ -116,18 +125,22 @@ final class PlaySong {
         
     }
     
+    // MARK: - Return is Play
     func isPlay() -> Bool{
         playedSong
     }
     
+    // MARK: - Return get Index
     func getIndex() -> Int{
         index
     }
     
+    // MARK: - Return get Index
     func isEmpty() -> Bool {
         self.songs.isEmpty
     }
     
+    // MARK: - Return get Index
     @objc func playerDidFinishPlaying() {
         goNextSong(self.index)
     }

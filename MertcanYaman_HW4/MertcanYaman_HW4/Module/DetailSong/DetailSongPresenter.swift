@@ -19,6 +19,7 @@ protocol DetailSongPresenterProtocol {
     func setIndexOfMusic(_ index: Int)
     func playMusic()
     func nextSong()
+    func previousSong()
     
 }
 
@@ -75,6 +76,19 @@ final class DetailSongPresenter {
 }
 
 extension DetailSongPresenter: DetailSongPresenterProtocol {
+    
+    func previousSong() {
+        guard let song = PlaySong.shared.getPreviousSong(self.indexOfMusics) else { return }
+        self.music = song
+        self.indexOfMusics = PlaySong.shared.getIndex()
+        guard let trackId = music?.trackID else { return }
+        interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
+        viewWillAppear()
+        isPlaySong = true
+        PlaySong.shared.startSong(self.indexOfMusics)
+        self.view.changePlayButton(true)
+        self.view.hideLoading()
+    }
     
     func nextSong() {
         

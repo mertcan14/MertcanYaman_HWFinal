@@ -61,12 +61,22 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
     func deleteSong(_ index: Int) {
         
         guard let song = savedMusics[safe: index] else { return }
-        let removeObj: [String : Any] = [
-            "trackId": song.trackId ?? "",
-            "playListName": name ?? "a"
-        ]
-        savedMusics.remove(at: index)
-        interactor.deleteSavedMusic(removeObj)
+        
+        if name == "Your Favorites" {
+            let removeObj: [String : Any] = [
+                "trackId": song.trackId ?? "",
+                "playListName": ""
+            ]
+            savedMusics.remove(at: index)
+            interactor.deleteSavedMusic(removeObj)
+        }else {
+            let removeObj: [String : Any] = [
+                "trackId": song.trackId ?? "",
+                "playListName": name
+            ]
+            savedMusics.remove(at: index)
+            interactor.deleteSavedMusic(removeObj)
+        }
         
     }
     
@@ -86,7 +96,7 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
             )
         }
         
-        PlaySong.shared.setUrls(musics)
+        PlaySong.shared.setMusics(musics)
         
     }
     
@@ -139,11 +149,7 @@ extension DetailPlayListPresenter: DetailPlayListInteractorOutputProtocol {
     
     func checkDeleteMusic(_ success: Bool) {
         
-        if !success{
-            view.showAlert("Error", "Delete operation failed", nil)
-        }else {
-            view.reloadData()
-        }
+        self.view.reloadData()
         
     }
     
