@@ -6,18 +6,21 @@
 //
 
 import Foundation
-import UIKit
 
 enum DetailSongRoutes {
-    case detailArtistScreen
+    
     case dismissScreen
+    
 }
 
 protocol DetailSongRouterProtocol: AnyObject {
+    
     func navigate(_ route: DetailSongRoutes)
+    
 }
 
 final class DetailSongRouter {
+    
     weak var viewController: DetailSongViewController?
     
     static func createModule() -> DetailSongViewController {
@@ -30,6 +33,7 @@ final class DetailSongRouter {
         view.presenter = presenter
         return view
     }
+    
 }
 
 extension DetailSongRouter: DetailSongRouterProtocol {
@@ -37,8 +41,6 @@ extension DetailSongRouter: DetailSongRouterProtocol {
     func navigate(_ route: DetailSongRoutes) {
         switch route {
             
-        case .detailArtistScreen:
-            print("Detail artist screen")
         case .dismissScreen:
             self.viewController?.navigationController?.popViewController(animated: true)
         }

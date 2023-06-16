@@ -9,6 +9,9 @@ import UIKit
 
 protocol AddPlayListViewControllerProtocol: AnyObject, BaseViewControllerProtocol {
     
+    func setupNotificationCenter()
+    func setupGestureRecognizer()
+    
 }
 
 final class AddPlayListViewController: BaseViewController {
@@ -21,55 +24,88 @@ final class AddPlayListViewController: BaseViewController {
     @IBOutlet weak var viewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setAccessiblityIdentifier()
+        presenter.viewDidLoad()
         playListTextField.delegate = self
-        let backTap = UITapGestureRecognizer(target: self, action: #selector(back))
-        backArrowImage.addGestureRecognizer(backTap)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(AddPlayListViewController.keyboardVisible), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AddPlayListViewController.keyboardHidden), name: UIResponder.keyboardDidHideNotification, object: nil)
-
         
     }
     
     @objc func keyboardVisible() {
+        
         viewHeightConstraint.constant = 600
+        
     }
 
     @objc func keyboardHidden() {
+        
         viewHeightConstraint.constant = 300
+        
     }
     
     @objc func back() {
+        
         presenter.goPreviousScreen()
+        
     }
     
     @IBAction func saveBtnClicked(_ sender: Any) {
+        
         presenter.addPlayList(playListTextField.text ?? "")
+        
     }
     
 }
 
-extension AddPlayListViewController: AddPlayListViewControllerProtocol{
+extension AddPlayListViewController: AddPlayListViewControllerProtocol {
+    
+    func setupGestureRecognizer() {
+        let backTap = UITapGestureRecognizer(target: self, action: #selector(back))
+        backArrowImage.addGestureRecognizer(backTap)
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(AddPlayListViewController.keyboardVisible),
+            name: UIResponder.keyboardDidShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(AddPlayListViewController.keyboardHidden),
+            name: UIResponder.keyboardDidHideNotification,
+            object: nil
+        )
+    }
     
 }
 
 extension AddPlayListViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(hallname : UITextField!) -> Bool {
+        
         hallname.resignFirstResponder()
         return true
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
          textField.resignFirstResponder()
          return true
+        
     }
+    
 }
 
 extension AddPlayListViewController {
+    
     func setAccessiblityIdentifier() {
         
         playListTextField.accessibilityIdentifier = "playListTextField"
+        
     }
+    
 }

@@ -9,17 +9,23 @@ import Foundation
 import MusicAPI
 
 protocol HomeInteractorProtocol: AnyObject {
+    
     func fetchMusics(_ term: String)
+    
 }
 
 protocol HomeInteractorOutputProtocol: AnyObject {
+    
     func getMusics(_ musics: MusicResult)
     func showError(_ error: Error)
     func goNoInternet()
+    
 }
 
 final class HomeInteractor {
+    
     var output: HomeInteractorOutputProtocol?
+    
 }
 
 extension HomeInteractor: HomeInteractorProtocol {
@@ -40,7 +46,7 @@ extension HomeInteractor: HomeInteractorProtocol {
                 if error.message == NetworkError.connectionError.message {
                     self.output?.goNoInternet()
                 }else {
-                    print(error)
+                    self.output?.showError(error)
                 }
             }
         }

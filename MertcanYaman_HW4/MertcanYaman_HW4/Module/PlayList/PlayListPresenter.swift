@@ -48,10 +48,11 @@ extension PlayListPresenter: PlayListPresenterProtocol {
     
     func viewWillAppear() {
         
+        fetchPlayList()
+        view.setupCircleButton()
+        
         if PlaySong.shared.isPlay() {
-            guard let music = PlaySong.shared.getMusicForTableCellByIndex(),
-                  let url = URL(string: music.0) else { return }
-            view.setPlayedSongView((url, music.1), PlaySong.shared.getIndex())
+            view.setPlayedSongView()
         }else {
             view.playedSongHidden()
         }
@@ -60,38 +61,57 @@ extension PlayListPresenter: PlayListPresenterProtocol {
     
     
     func fetchPlayList() {
+        
         interactor.fetchPlayList()
+        
     }
     
     func goOtherScreen(_ routes: PlayListRoutes) {
+        
         self.router.navigate(routes)
+        
     }
     
     func getPlayListByIndex(_ index: Int) -> PlayListData? {
+        
         playList[safe: index]
+        
     }
     
     var numberOfPlayList: Int {
+        
         playList.count + 1
+        
     }
     
     func viewDidLoad() {
+        
         view.setTableView()
+        view.setupNotificationCenter()
+        view.setupGestureRecognizer()
+        
     }
     
     func previousSong() {
+        
         PlaySong.shared.goPreviousSong(self.playedMusicIndex)
+        
     }
     
     func nextSong() {
+        
         PlaySong.shared.goNextSong(PlaySong.shared.getIndex())
+        
     }
     
     func setPlayedMusicIndex(_ index: Int) {
+        
         self.playedMusicIndex = index
+        
     }
     
     func playMusic() {
+        
         if !isPlaySong {
             PlaySong.shared.startSong(self.playedMusicIndex)
             isPlaySong = true
@@ -99,6 +119,7 @@ extension PlayListPresenter: PlayListPresenterProtocol {
             PlaySong.shared.stopSong()
             isPlaySong = false
         }
+        
     }
     
 }

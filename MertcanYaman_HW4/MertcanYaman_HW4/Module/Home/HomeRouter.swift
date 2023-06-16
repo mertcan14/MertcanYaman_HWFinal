@@ -9,15 +9,20 @@ import Foundation
 import UIKit
 
 enum HomeRoutes {
+    
     case noInternetScreen
     case detailSong(_ song: Music, _ index: Int)
+    
 }
 
 protocol HomeRouterProtocol: AnyObject {
+    
     func navigate(_ route: HomeRoutes)
+    
 }
 
 final class HomeRouter {
+    
     weak var viewController: HomeViewController?
     
     static func createModule() -> HomeViewController {
@@ -30,11 +35,13 @@ final class HomeRouter {
         view.presenter = presenter
         return view
     }
+    
 }
 
 extension HomeRouter: HomeRouterProtocol {
     
     func navigate(_ route: HomeRoutes) {
+        
         guard let window = viewController?.view.window else { return }
         switch route {
             
@@ -50,4 +57,5 @@ extension HomeRouter: HomeRouterProtocol {
         }
         
     }
+    
 }

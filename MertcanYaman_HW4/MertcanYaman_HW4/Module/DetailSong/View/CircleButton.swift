@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CircleButton: UIView {
+final class CircleButton: UIView {
     
     @IBOutlet var outerView: UIView!
     @IBOutlet weak var btnImageView: UIImageView!
@@ -47,6 +47,7 @@ class CircleButton: UIView {
     }
     
     func changeImageAndColor() {
+        
         if let newImage {
             DispatchQueue.main.async {
                 if self.btnImageView.image == self.defaultImage {
@@ -66,37 +67,46 @@ class CircleButton: UIView {
                 }
             }
         }
+        
     }
     
     func selectNewIcon() {
+        
         if let newColor {
             DispatchQueue.main.async {
                 self.outerView.backgroundColor = newColor
                 self.btnImageView.image = self.newImage
             }
         }
+        
     }
     
     func selectDefaultIcon() {
+        
         DispatchQueue.main.async {
             self.outerView.backgroundColor = self.defaultColor
             self.btnImageView.image = self.defaultImage
         }
+        
     }
     
     private func configureView() {
+        
         guard let nibView = loadViewFromNib() else {return }
         containerView = view
         bounds = nibView.frame
         addSubview(nibView)
+        
     }
     
     private func loadViewFromNib() -> UIView! {
+        
         let bundle = Bundle(for: type(of: self))
         let name = NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
         let nib = UINib(nibName: name, bundle: bundle)
         let view = nib.instantiate(withOwner: self)[0] as! UIView
         return view
+        
     }
     
 }

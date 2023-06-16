@@ -8,6 +8,7 @@
 import Foundation
 
 protocol DetailSongPresenterProtocol {
+    
     func setMusic(_ music: Music)
     func viewWillAppear()
     func goPreviousScreen()
@@ -18,6 +19,7 @@ protocol DetailSongPresenterProtocol {
     func setIndexOfMusic(_ index: Int)
     func playMusic()
     func nextSong()
+    
 }
 
 final class DetailSongPresenter {
@@ -41,6 +43,7 @@ final class DetailSongPresenter {
     }
     
     private func setSavedMusic() -> [String: Any] {
+        
         let addWord: [String: Any] = [
             "artistName": music?.artistName ?? "",
             "artworkUrl100": music?.artworkUrl100 ?? "",
@@ -51,9 +54,11 @@ final class DetailSongPresenter {
             "trackName": music?.trackName ?? "",
         ]
         return addWord
+        
     }
     
     private func setSavedMusicFromPlayList(_ playListName: String) -> [String: Any] {
+        
         let addWord: [String: Any] = [
             "artistName": music?.artistName ?? "",
             "artworkUrl100": music?.artworkUrl100 ?? "",
@@ -64,6 +69,7 @@ final class DetailSongPresenter {
             "trackName": music?.trackName ?? "",
         ]
         return addWord
+        
     }
     
 }
@@ -71,19 +77,23 @@ final class DetailSongPresenter {
 extension DetailSongPresenter: DetailSongPresenterProtocol {
     
     func nextSong() {
+        
         guard let song = PlaySong.shared.getNextSong(self.indexOfMusics) else { return }
         self.music = song
-        self.indexOfMusics += PlaySong.shared.getIndex()
+        self.indexOfMusics = PlaySong.shared.getIndex()
         guard let trackId = music?.trackID else { return }
         interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
         viewWillAppear()
         isPlaySong = true
         PlaySong.shared.startSong(self.indexOfMusics)
+        self.view.changePlayButton(true)
         self.view.hideLoading()
+        
     }
     
     
     func playMusic() {
+        
         if !isPlaySong {
             PlaySong.shared.startSong(self.indexOfMusics)
             isPlaySong = true
@@ -91,37 +101,49 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
             PlaySong.shared.stopSong()
             isPlaySong = false
         }
+        
     }
     
     func setIndexOfMusic(_ index: Int) {
+        
         self.indexOfMusics = index
+        
     }
     
     func deleteLikeSong() {
+        
         let removeObj: [String : Any] = [
             "trackId": music?.trackID ?? "",
             "playListName": ""
         ]
         self.interactor.removeSaveMusic("Song", removeObj)
+        
     }
     
     func likeBtnClicked() {
+        
         if isLike {
             view.checkDeleteLike()
         }else {
             self.interactor.savedMusic("Song", setSavedMusic())
         }
+        
     }
     
     func getMusic() -> Music? {
+        
         self.music
+        
     }
     
     func goPreviousScreen() {
+        
         self.router.navigate(.dismissScreen)
+        
     }
 
     func viewWillAppear() {
+        
         view.showLoading()
         guard let imageUrl = music?.artworkUrl100,
               let songName = music?.trackName,
@@ -140,12 +162,17 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
     }
     
     func viewDidAppear() {
+        
+        self.view.setupWillDesign()
         guard let trackId = music?.trackID else { return }
         interactor.checkIsLiked(["trackId": trackId, "playListName": ""])
+        
     }
     
     func setMusic(_ music: Music) {
+        
         self.music = music
+        
     }
     
 }
@@ -153,19 +180,24 @@ extension DetailSongPresenter: DetailSongPresenterProtocol {
 extension DetailSongPresenter: DetailSongInteractorOutputProtocol {
     
     func isLiked(_ success: Bool) {
+        
         isLike = success
         self.view.changeHeartIcon(success)
+        
     }
     
     func checkSavedFunc(_ success: Bool) {
+        
         isLike = success
+        
     }
     
     func showError(_ error: String) {
+        
         self.view.showAlert("Error", error) {
             print("Error")
         }
+        
     }
-    
     
 }

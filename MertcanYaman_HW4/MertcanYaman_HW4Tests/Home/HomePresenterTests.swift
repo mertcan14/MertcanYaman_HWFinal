@@ -71,13 +71,12 @@ final class HomePresenterTests: XCTestCase {
         
         XCTAssertEqual(presenter.numberOfMusics, 0)
         XCTAssertFalse(view.isInvokedReloadData)
-        XCTAssertNil(presenter.getMusicByIndex(0))
         
         presenter.getMusics(.response)
         
         XCTAssertEqual(presenter.numberOfMusics, 50)
         XCTAssertTrue(view.isInvokedReloadData)
-        XCTAssertNotNil(presenter.getMusicByIndex(1))
+        
     }
     
 }

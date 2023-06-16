@@ -10,6 +10,30 @@ import Foundation
 
 final class MockHomeViewController: HomeViewControllerProtocol {
     
+    var isInvokedNotificationCenter = false
+    var invokedNotificationCenterCount = 0
+    
+    func setupNotificationCenter() {
+        self.isInvokedNotificationCenter = true
+        self.invokedNotificationCenterCount += 1
+    }
+    
+    var isInvokedGestureRecognizer = false
+    var invokedGestureRecognizerCount = 0
+    
+    func setupGestureRecognizer() {
+        self.isInvokedGestureRecognizer = true
+        self.invokedGestureRecognizerCount += 1
+    }
+    
+    var isInvokedCircleButton = false
+    var invokedCircleButtonCount = 0
+    
+    func setupCircleButton() {
+        self.isInvokedCircleButton = true
+        self.invokedCircleButtonCount += 1
+    }
+    
     var isInvokedReloadData = false
     var invokedReloadDataCount = 0
     

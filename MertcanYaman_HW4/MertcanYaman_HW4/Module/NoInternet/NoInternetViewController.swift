@@ -42,7 +42,9 @@ extension NoInternetViewController: NoInternetViewControllerProtocol {
     }
     
     func enabledBtn(_ enabled: Bool) {
-        self.tryAgainBtn.isEnabled = enabled
+        DispatchQueue.main.async {
+            self.tryAgainBtn.isEnabled = enabled
+        }
     }
     
     func setTimeLabel(_ label: String) {

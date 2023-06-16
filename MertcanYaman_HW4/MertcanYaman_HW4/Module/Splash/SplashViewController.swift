@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class SplashViewController: BaseViewController {
 
     var presenter: SplashPresenterProtocol!

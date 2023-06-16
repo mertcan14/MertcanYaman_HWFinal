@@ -21,9 +21,11 @@ protocol DetailPlayListPresenterProtocol {
     func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)?
     func deleteSong(_ index: Int)
     func setMusicUrlAndPushPlaySong()
+    
 }
 
 final class DetailPlayListPresenter {
+    
     unowned var view: DetailPlayListViewControllerProtocol
     let router: DetailPlayListRouterProtocol
     let interactor: DetailPlayListInteractorProtocol
@@ -42,17 +44,22 @@ final class DetailPlayListPresenter {
     }
     
     func setName(_ name:String) {
+        
         self.name = name
+        
     }
     
-    func viewWillAppear() {
+    func viewWillAppear() {
+        
         view.setTitle(name ?? "")
+        
     }
 }
 
 extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
     
     func deleteSong(_ index: Int) {
+        
         guard let song = savedMusics[safe: index] else { return }
         let removeObj: [String : Any] = [
             "trackId": song.trackId ?? "",
@@ -60,9 +67,11 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
         ]
         savedMusics.remove(at: index)
         interactor.deleteSavedMusic(removeObj)
+        
     }
     
     func setMusicUrlAndPushPlaySong() {
+        
         var musics: [Music] = []
         self.savedMusics.forEach { savedMusic in
             musics.append(
@@ -78,36 +87,50 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
         }
         
         PlaySong.shared.setUrls(musics)
+        
     }
     
     var numberOfSavedMusics: Int {
+        
         self.savedMusics.count
+        
     }
     
     func getSavedMusicByIndex(_ index: Int) -> SavedMusic? {
+        
         savedMusics[safe: index]
+        
     }
     
     func viewDidLoad() {
+        
+        self.view.setupTableView()
+        self.view.setupGestureRecognizer()
+        self.view.setupNotificationCenter()
         guard let name = self.name else { return }
         if name == "Your Favorites" {
             interactor.fetchSavedMusicByListName("")
         }else {
             interactor.fetchSavedMusicByListName(name)
         }
+        
     }
     
     func goOtherPage(_ routes: DetailPlayListRoutes) {
+        
         self.router.navigate(routes)
+        
     }
     
     func getSavedMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)? {
+        
         guard let music = savedMusics[safe: index],
               let imageUrl = music.artworkUrl100,
               let title = music.trackName,
               let content = music.artistName,
               let trackId = Int(music.trackId ?? "-1") else { return nil }
         return (imageUrl, title, content, index, trackId)
+        
     }
     
 }
@@ -115,17 +138,29 @@ extension DetailPlayListPresenter: DetailPlayListPresenterProtocol {
 extension DetailPlayListPresenter: DetailPlayListInteractorOutputProtocol {
     
     func checkDeleteMusic(_ success: Bool) {
+        
         if !success{
             view.showAlert("Error", "Delete operation failed", nil)
         }else {
             view.reloadData()
         }
+        
     }
     
     func getSavedMusic(_ songs: [SavedMusic]) {
+        
         view.hideLoading()
         self.savedMusics = songs
         view.reloadData()
+        
+    }
+    
+    func showError(_ error: String) {
+        
+        self.view.showAlert("Error", error) {
+            self.view.hideLoading()
+        }
+        
     }
 
 }

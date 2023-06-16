@@ -6,13 +6,14 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol MusicTableViewCellProtocol: AnyObject {
+    
     func setImage(_ image: URL)
     func setTitle(_ text: String)
     func setArtist(_ text: String)
     func setButton(_ bool: Bool)
+    
 }
 
 final class MusicTableViewCell: UITableViewCell {
@@ -31,6 +32,7 @@ final class MusicTableViewCell: UITableViewCell {
     @IBAction func playBtnClicked(_ sender: Any) {
         cellPresenter.playSongTap()
     }
+    
 }
 
 extension MusicTableViewCell: MusicTableViewCellProtocol {

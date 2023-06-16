@@ -12,89 +12,108 @@ final class PlaySong {
     
     static let shared = PlaySong()
     
-    private var songsUrl: [Music] = []
+    // MARK: -> 
+    private var songs: [Music] = []
     private var index: Int = -1
     private var player: AVPlayer?
     private var playedSong: Bool = false
     
     func startSong(_ index: Int) {
+        
         self.player?.pause()
-        guard let previewUrl = songsUrl[safe: index]?.previewURL,
+        
+        guard let previewUrl = songs[safe: index]?.previewURL,
               let url = URL(string: previewUrl) else { return }
         self.index = index
         let playerItem = AVPlayerItem(url: url)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
-        
-        self.player = AVPlayer(playerItem:playerItem)
-        player!.volume = 1.0
-        player!.play()
+        self.player = AVPlayer( playerItem: playerItem)
+        player?.volume = 1
+        player?.play()
         playedSong = true
         
-        guard let music = getMusicForTableCellByIndex() else { return }
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerDidFinishPlaying),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+            object: playerItem)
         NotificationCenter.default.post(name: Notification.Name("PlayedSong"), object: nil)
+        
     }
     
     func getMusicForTableCellByIndex() -> (String, String)? {
-        guard let music = self.songsUrl[safe: index],
+        
+        guard let music = self.songs[safe: index],
               let imageUrl = music.artworkUrl100,
               let title = music.trackName else { return nil }
         return (imageUrl, title)
+        
     }
     
     func stopSong() {
+        
         self.player?.pause()
         playedSong = false
         NotificationCenter.default.post(name: Notification.Name("StopSong"), object: nil)
+        
     }
     
     func setUrls(_ urls: [Music]) {
         
-        self.songsUrl = urls
+        self.songs = urls
         if urls.count == 1 {
-            self.songsUrl += urls
+            self.songs += urls
         }
         
     }
     
     func getNextSong(_ index: Int) -> Music?{
+        
         self.index = index + 1
-        if self.index == songsUrl.count {
+        if self.index == songs.count {
             self.index = 0
         }
-        return self.songsUrl[safe: self.index]
+        return self.songs[safe: self.index]
+        
     }
     
     func goNextSong(_ index: Int) {
+        
         self.index = index + 1
-        if self.index == songsUrl.count {
+        if self.index == songs.count {
             self.index = 0
         }
         self.startSong(self.index)
+        
     }
     
     func getPreviousSong(_ index: Int) -> Music?{
+        
         self.index = index - 1
         if self.index < 0 {
-            self.index = self.songsUrl.count - 1
+            self.index = self.songs.count - 1
         }
-        return self.songsUrl[safe: self.index]
+        return self.songs[safe: self.index]
+        
     }
     
     func goPreviousSong(_ index: Int) {
+        
         self.index = index - 1
         if self.index < 0 {
-            self.index = self.songsUrl.count - 1
+            self.index = self.songs.count - 1
         }
         self.startSong(self.index)
+        
     }
     
     func checkPlayedEqualIsThisSong(_ trackId: Int) -> Bool {
-        guard let playedTrackId = self.songsUrl[safe: self.index]?.trackID else { return false }
+        
+        guard let playedTrackId = self.songs[safe: self.index]?.trackID else { return false }
         if playedSong {
             return playedTrackId == trackId
         }
         return false
+        
     }
     
     func isPlay() -> Bool{
@@ -106,10 +125,11 @@ final class PlaySong {
     }
     
     func isEmpty() -> Bool {
-        self.songsUrl.isEmpty
+        self.songs.isEmpty
     }
     
     @objc func playerDidFinishPlaying() {
         goNextSong(self.index)
     }
+    
 }

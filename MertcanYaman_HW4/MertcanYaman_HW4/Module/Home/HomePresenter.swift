@@ -12,7 +12,6 @@ protocol HomePresenterProtocol {
     var numberOfMusics: Int { get }
     
     func fetchData(_ term: String)
-    func getMusicByIndex(_ index: Int) -> Music?
     func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)?
     func viewDidLoad()
     func viewWillAppear()
@@ -49,27 +48,36 @@ final class HomePresenter {
         self.router = router
         self.interactor = interactor
     }
-    
-    func setMusicUrlAndPushPlaySong() {
-        PlaySong.shared.setUrls(self.musicResult)
-    }
 }
 
 extension HomePresenter: HomePresenterProtocol {
     
+    func setMusicUrlAndPushPlaySong() {
+        
+        PlaySong.shared.setUrls(self.musicResult)
+        
+    }
+    
     func previousSong() {
+        
         PlaySong.shared.goPreviousSong(self.playedMusicIndex)
+        
     }
     
     func nextSong() {
+        
         PlaySong.shared.goNextSong(self.playedMusicIndex)
+        
     }
     
     func setPlayedMusicIndex(_ index: Int) {
+        
         self.playedMusicIndex = index
+        
     }
     
     func playMusic() {
+        
         if !isPlaySong {
             PlaySong.shared.startSong(self.playedMusicIndex)
             isPlaySong = true
@@ -77,51 +85,63 @@ extension HomePresenter: HomePresenterProtocol {
             PlaySong.shared.stopSong()
             isPlaySong = false
         }
+        
     }
     
     func removeSongs() {
+        
         self.musicResult = []
         self.musicCount = 0
+        
     }
     
     func goDetailSong(_ index: Int) {
+        
         guard let song = self.musicResult[safe: index] else { return }
         setMusicUrlAndPushPlaySong()
         self.router.navigate(.detailSong(song, index))
+        
     }
     
     func viewDidLoad() {
         
         self.view.setupField()
         self.view.setupTableView()
+        self.view.setupNotificationCenter()
+        self.view.setupGestureRecognizer()
         
     }
     
     func viewWillAppear() {
+        
         self.view.setWillAppear()
         self.view.hiddenPlayedSong(!(PlaySong.shared.isPlay()))
-        view.reloadDataNotification()
+        self.view.reloadDataNotification()
+        self.view.setupCircleButton()
+        
     }
     
     func getMusicForTableCellByIndex(_ index: Int) -> (String, String, String, Int, Int)? {
+        
         guard let music = musicResult[safe: index],
               let imageUrl = music.artworkUrl100,
               let title = music.trackName,
               let content = music.artistName,
               let trackId = music.trackID else { return nil }
         return (imageUrl, title, content, index, trackId)
+        
     }
     
     var numberOfMusics: Int {
+        
         return musicCount
-    }
-    
-    func getMusicByIndex(_ index: Int) -> Music? {
-       return musicResult[safe: index]
+        
     }
     
     func fetchData(_ term: String) {
+        
         interactor.fetchMusics(term)
+        
     }
     
 }
@@ -129,10 +149,13 @@ extension HomePresenter: HomePresenterProtocol {
 extension HomePresenter: HomeInteractorOutputProtocol {
     
     func goNoInternet() {
+        
         router.navigate(.noInternetScreen)
+        
     }
     
     func getMusics(_ musics: MusicResult) {
+        
         guard let musicResults = musics.results,
               let count = musics.resultCount else { return }
         self.musicResult = musicResults
@@ -144,10 +167,11 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func showError(_ error: Error) {
+        
         self.view.showAlert("Error", error.localizedDescription) {
             self.view.hideLoading()
-            print("Hello")
         }
+        
     }
     
 }

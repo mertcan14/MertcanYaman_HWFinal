@@ -8,42 +8,6 @@
 import Foundation
 import MusicAPI
 
-
-// MARK: - Extension Music Service For Artist
-extension MusicService {
-    
-    func getArtistById(
-        _ id: String,
-        completion: @escaping ((Result<ArtistResult, NetworkError>) -> Void)
-    ) {
-        if ReachabilityService.isConnectedToInternet() {
-            guard let url = ArtistURL.id(id).url else {
-                completion(.failure(.invalidChar))
-                return
-            }
-            self.fetchMusic(url, completion: completion)
-        }else {
-            completion(.failure(.connectionError))
-        }
-    }
-    
-    func getArtistsByIds(
-        _ ids: String...,
-        completion: @escaping ((Result<ArtistResult, NetworkError>) -> Void)
-    ) {
-        if ReachabilityService.isConnectedToInternet() {
-            guard let url = ArtistURL.multiId(ids).url else {
-                completion(.failure(.invalidChar))
-                return
-            }
-            self.fetchMusic(url, completion: completion)
-        }else {
-            completion(.failure(.connectionError))
-        }
-    }
-    
-}
-
 // MARK: - Extension Music Service For Music
 extension MusicService {
     

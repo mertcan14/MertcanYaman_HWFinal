@@ -7,20 +7,26 @@
 
 import UIKit
 
+typealias Submodules = (
+    home: UIViewController,
+    playList: UIViewController
+)
+
+protocol TapBarRouterProtocol: AnyObject {
+    
+    static func tabs(usingSubModules submodules: Submodules) -> SongTabs
+    
+}
+
 final class TabBarRouter {
     
     var viewController: UIViewController
-    
-    typealias Submodules = (
-        home: UIViewController,
-        playList: UIViewController
-    )
     
     init(_ viewController: UIViewController) {
         self.viewController = viewController
     }
     
-    static func createModule(usingSubModules subModules: TabBarRouter.Submodules) -> UITabBarController {
+    static func createModule(usingSubModules subModules: Submodules) -> UITabBarController {
         let tabs = TabBarRouter.tabs(usingSubModules: subModules)
         let tabBarController = SongTabBarController(tabs: tabs)
         return tabBarController
@@ -28,7 +34,7 @@ final class TabBarRouter {
     
 }
 
-extension TabBarRouter {
+extension TabBarRouter: TapBarRouterProtocol {
     
     static func tabs(usingSubModules submodules: Submodules) -> SongTabs {
         let homeTabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 11)
@@ -42,4 +48,5 @@ extension TabBarRouter {
             playList: submodules.playList
         )
     }
+    
 }

@@ -8,10 +8,15 @@
 import UIKit
 
 protocol PlayListViewControllerProtocol: AnyObject, BaseViewControllerProtocol{
+    
     func setTableView()
     func reloadData()
     func playedSongHidden()
-    func setPlayedSongView(_ music: (URL, String), _ index: Int)
+    func setPlayedSongView()
+    func setupNotificationCenter()
+    func setupGestureRecognizer()
+    func setupCircleButton()
+    
 }
 
 final class PlayListViewController: BaseViewController {
@@ -27,12 +32,80 @@ final class PlayListViewController: BaseViewController {
     @IBOutlet weak var playListTableView: UITableView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         showLoading()
         presenter.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(playedMusicShowUI(notification:)), name: Notification.Name("PlayedSong"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(stopMusicShowUI), name: Notification.Name("StopSong"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadDataNotification()
+        self.navigationController?.isNavigationBarHidden = true
+        presenter.viewWillAppear()
+    }
+    
+    @IBAction func addBtnClicked(_ sender: Any) {
+        presenter.goOtherScreen(.addPlayList)
+    }
+
+    
+    @objc func playedMusicShowUI(notification: Notification) {
+        setPlayedSongView()
+    }
+    
+    func setPlayedSongView() {
+        guard let music = PlaySong.shared.getMusicForTableCellByIndex(),
+              let url = URL(string: music.0) else { return }
+        DispatchQueue.main.async {
+            self.playedSongView.isHidden = false
+            self.songImageView.sd_setImage(with: url)
+            self.songTitle.text = music.1
+        }
+    }
+    
+    @objc func stopMusicShowUI() {
+        self.playSongBtn.selectDefaultIcon()
+    }
+    
+    @objc func changeCircleBtn(sender : MyTapGesture) {
+        sender.circleBtn.changeImageAndColor()
+        guard let closure =  sender.closure else { return }
+        closure()
+    }
+    
+    @objc func reloadDataNotification() {
+        if PlaySong.shared.isPlay() {
+            playSongBtn.selectNewIcon()
+        }else {
+            playSongBtn.selectDefaultIcon()
+        }
+        presenter.setPlayedMusicIndex(PlaySong.shared.getIndex())
+        setPlayedSongView()
+    }
+}
+
+extension PlayListViewController: PlayListViewControllerProtocol {
+    
+    func setupCircleButton() {
+        
+        nextSongBtn.layer.cornerRadius = nextSongBtn.bounds.width / 2
+        nextSongBtn.layer.masksToBounds = true
+        
+        playSongBtn.layer.cornerRadius = playSongBtn.bounds.width / 2
+        playSongBtn.layer.masksToBounds = true
+        
+        previousSongBtn.layer.cornerRadius = previousSongBtn.bounds.width / 2
+        previousSongBtn.layer.masksToBounds = true
+        
+        
+        playSongBtn.setup("play", "pause", UIColor(hexString: "#141921"), .white)
+        nextSongBtn.setup("next", nil, UIColor(hexString: "#141921"), nil)
+        previousSongBtn.setup("previous", nil, UIColor(hexString: "#141921"), nil)
+        
+    }
+    
+    func setupGestureRecognizer() {
         
         let playSongTap = MyTapGesture(target: self, action: #selector(changeCircleBtn))
         playSongBtn.addGestureRecognizer(playSongTap)
@@ -54,61 +127,31 @@ final class PlayListViewController: BaseViewController {
         previousSongTap.closure = {
             self.presenter.previousSong()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-        presenter.fetchPlayList()
         
-        nextSongBtn.layer.cornerRadius = nextSongBtn.bounds.width / 2
-        nextSongBtn.layer.masksToBounds = true
+    }
+    
+    func setupNotificationCenter() {
         
-        playSongBtn.layer.cornerRadius = playSongBtn.bounds.width / 2
-        playSongBtn.layer.masksToBounds = true
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playedMusicShowUI(notification:)),
+            name: Notification.Name("PlayedSong"),
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(stopMusicShowUI),
+            name: Notification.Name("StopSong"),
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reloadDataNotification),
+            name: Notification.Name("PlayedSong"),
+            object: nil
+        )
         
-        previousSongBtn.layer.cornerRadius = previousSongBtn.bounds.width / 2
-        previousSongBtn.layer.masksToBounds = true
-        
-        
-        playSongBtn.setup("play", "pause", UIColor(hexString: "#141921"), .white)
-        nextSongBtn.setup("next", nil, UIColor(hexString: "#141921"), nil)
-        previousSongBtn.setup("previous", nil, UIColor(hexString: "#141921"), nil)
-        presenter.viewWillAppear()
     }
-    
-    @IBAction func addBtnClicked(_ sender: Any) {
-        presenter.goOtherScreen(.addPlayList)
-    }
-
-    
-    @objc func playedMusicShowUI(notification: Notification) {
-        guard let music = notification.userInfo?["song"] as? (String, String),
-              let url = URL(string: music.0),
-              let index = notification.userInfo?["index"] as? Int else { return }
-        setPlayedSongView((url, music.1), index)
-    }
-    
-    func setPlayedSongView(_ music: (URL, String), _ index: Int) {
-        DispatchQueue.main.async {
-            self.playedSongView.isHidden = false
-            self.songImageView.sd_setImage(with: music.0)
-            self.songTitle.text = music.1
-            self.playSongBtn.selectNewIcon()
-        }
-    }
-    
-    @objc func stopMusicShowUI() {
-        self.playSongBtn.selectDefaultIcon()
-    }
-    
-    @objc func changeCircleBtn(sender : MyTapGesture) {
-        sender.circleBtn.changeImageAndColor()
-        guard let closure =  sender.closure else { return }
-        closure()
-    }
-}
-
-extension PlayListViewController: PlayListViewControllerProtocol {
     
     func playedSongHidden() {
         self.playedSongView.isHidden = true

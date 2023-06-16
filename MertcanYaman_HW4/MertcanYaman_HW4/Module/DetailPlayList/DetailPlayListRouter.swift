@@ -8,14 +8,19 @@
 import Foundation
 
 enum DetailPlayListRoutes {
+    
     case goPreviousPage
+    
 }
 
 protocol DetailPlayListRouterProtocol {
+    
     func navigate(_ route: DetailPlayListRoutes)
+    
 }
 
 final class DetailPlayListRouter {
+    
     weak var viewController: DetailPlayListViewController?
     
     static func createModule() -> DetailPlayListViewController {
