@@ -12,6 +12,7 @@ final class SplashViewController: BaseViewController {
 
     var presenter: SplashPresenterProtocol!
     
+    @IBOutlet weak var splahImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -21,18 +21,61 @@ final class MertcanYaman_HW4UITests: XCTestCase {
     
     func test_search_from_home_view_controller() {
         app.launch()
+        
+        XCTAssertTrue(app.searchTextFieldDisplayed)
+        XCTAssertTrue(app.tableViewFromHomeDisplayed)
+
+        app.tabBars["Tab Bar"].buttons["Play List"].tap()
+        
+        XCTAssertTrue(app.buttons["Add Play List"].exists)
+        app.buttons["Add Play List"].tap()
+        
+        XCTAssertTrue(app.playListTextFieldDisplayed)
+        
+        let scrollViewsQuery = app.scrollViews
+        let elementsQuery = scrollViewsQuery.otherElements
+        elementsQuery.textFields["playListTextField"].tap()
+        
+        elementsQuery.textFields["playListTextField"].typeText("PlayListName")
+        
+        XCTAssertEqual(app.playListTextField.value as? String, "PlayListName")
+        
+        app.keyboards.buttons["Return"].tap()
+
+        elementsQuery.buttons["Save"].tap()
+        
+        app.tabBars["Tab Bar"].buttons["Home"].tap()
+        
+        XCTAssertTrue(app.searchTextFieldDisplayed)
+        XCTAssertTrue(app.tableViewFromHomeDisplayed)
+        XCTAssertFalse(app.playListTextFieldDisplayed)
+        
         app.searchTextField.tap()
-        app.keys["a"].tap()
-        app.keys["b"].tap()
-        app.keys["c"].tap()
+        app.searchTextField.typeText("Tarkan")
+        
+        XCTAssertEqual(app.searchTextField.value as? String, "Tarkan")
+        
     }
     
+    func dismissKeyboardIfPresent() {
+        if app.keyboards.element(boundBy: 0).exists {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                app.keyboards.buttons["Hide keyboard"].tap()
+            } else {
+                app.toolbars.buttons["Done"].tap()
+            }
+        }
+    }
 }
 
 extension XCUIApplication {
     
     var searchTextField: XCUIElement! {
-        textFields["searchTextField"]
+        searchFields["searchTextField"]
+    }
+    
+    var playListTextField: XCUIElement! {
+        textFields["playListTextField"]
     }
     
     var tableViewFromHome: XCUIElement! {
@@ -41,6 +84,10 @@ extension XCUIApplication {
     
     var searchTextFieldDisplayed: Bool {
         searchTextField.exists
+    }
+    
+    var playListTextFieldDisplayed: Bool {
+        playListTextField.exists
     }
     
     var tableViewFromHomeDisplayed: Bool {

@@ -494,8 +494,8 @@
             filePath = "MertcanYaman_HW4/MertcanYaman_HW4/Module/AddPlayList/AddPlayListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "back()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1170,6 +1170,22 @@
             endingLineNumber = "51"
             landmarkName = "load()"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27851F56-8E51-421C-A107-1691F913F97C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MertcanYaman_HW4/MertcanYaman_HW4UITests/MertcanYaman_HW4UITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "test_search_from_home_view_controller()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
