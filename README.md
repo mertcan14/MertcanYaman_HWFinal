@@ -29,13 +29,14 @@ This application is an application that uses iTunesAPI to take control of music.
 
 ✔️ AVFoundation
 
-✔️ Package Dependencies: Alamofire(5.7.1)
+✔️ Package Dependencies: Alamofire, SDWebImage
 
 ✔️ Written Modules: MusicAPI, MyCoreData
 
 ✔️ Unit Test
 
 ✔️ UI Test
+
 ## API Usage
 
 #### Get Data From Dictionary Api
